@@ -1,0 +1,49 @@
+.containerHeader
+{
+    background-color: #1C3E66;
+    color:white;
+    padding-top:2vw;
+}
+
+.fab
+{
+    color:white;
+}
+
+.divRedesSociales
+{
+    width: 100%;
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.divRedesSociales a
+{
+    margin: 2vw 2vw;   
+}
+
+.divSelfieFederal
+{
+    text-align: center;
+    font-size: 3vw;
+    margin-top:2vw;
+}
+
+.spanSelfie
+{
+    font-family: chivoBold;
+}
+
+.containerHeader hr
+{    
+    border-top: 4px solid white;
+    width: 40%;
+}
+
+.textHeader
+{
+    font-family: chivoLight;
+    font-size: 2vw;
+    text-align: center;
+    padding-bottom: 3vw;
+}
