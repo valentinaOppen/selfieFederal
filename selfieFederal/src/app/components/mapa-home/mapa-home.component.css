@@ -35,3 +35,43 @@
     text-align: center;
     width: 3vw;
 }
+
+.divMapa
+{
+    height: 10vw;
+    width: 100%;
+    border:solid 1px red
+}
+
+.containerFooterMapa
+{
+    background-color: #1C3E66;
+}
+
+.divFooterMapa
+{    
+    width:75%;
+    margin:auto auto;
+}
+
+.divCompartiTuSelfie
+{
+    width:50%;
+    color:white;
+    font-size:2vw;
+    padding: 6vw 0;
+}
+
+.spanSelfieFederal
+{
+    font-family: chivoBold;
+}
+
+.btnMapa
+{
+    background-color:#57B3B5;
+    border:solid white 1px;
+    font-size:1.3vw;
+    margin:1vw;
+    color:white;
+}
