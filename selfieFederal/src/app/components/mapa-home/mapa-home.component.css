@@ -1,0 +1,37 @@
+.divBuscadorMapaHome
+{
+    width: 100%;
+    background-color: #57B3B5;
+    height: 50px;
+}
+
+.buscador
+{
+    display: flex;
+}
+
+.buscador 
+{
+    display: flex;
+    width: fit-content;
+    height: 100%;
+    margin: auto auto;
+}
+
+.buscadorMapaHome
+{
+    height: 70%;
+    margin: auto;
+    width: 30vw;
+}
+
+.divSearch
+{
+    height: 70%;
+    margin: auto;
+    padding: 0.5em;
+    background-color: #1C3E66;
+    color: white;
+    text-align: center;
+    width: 3vw;
+}
