@@ -1,0 +1,15 @@
+<h1>{{ title }}</h1>
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<agm-map [latitude]="lat" [longitude]="lng" fullscreenControl="true" (mapClick)="handlerMapDblClick($event)"
+  (mapDblClick)="handlerMapDblClick($event)">
+  <!-- iconUrl="https://www.w3schools.com/w3css/img_avatar3.png" -->
+  <!-- label="masarasa"
+  title="titulo" -->
+  <agm-marker [latitude]="lat" [longitude]="lng" openInfoWindow="true" iconUrl="./assets/MapMarker.png">
+    <agm-info-window>
+      <app-marker-info></app-marker-info>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
