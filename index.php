@@ -6,7 +6,7 @@ require_once './composer/vendor/autoload.php';
 require_once './clases/AccesoDatos.php';
 require_once './rutas/selfiesApi.php';
 // require_once './clases/AutentificadorJWT.php';
-// require_once './clases/MWparaCORS.php';
+require_once './middlewares/MWparaCORS.php';
 // require_once './clases/MWparaAutentificar.php';
 
 $config['displayErrorDetails'] = true;
@@ -40,7 +40,7 @@ $app->group('/selfies', function() {
 	$this->delete('/visible/{id}', \SelfiesApi::class . ':deleteOne');
 	// Visible si
 	$this->put('/visible/{id}', \SelfiesApi::class . ':visibleOne');
-});
+})->add(\MWparaCORS::class . ':HabilitarCORSTodos');
 
 $app->group('/admin', function() {
 

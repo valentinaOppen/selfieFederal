@@ -1,4 +1,5 @@
 <?php
+include_once './clases/selfie.php';
 class SelfieDAO
 {
 	public $id;
@@ -72,10 +73,10 @@ class SelfieDAO
   	public static function getAllSelfies()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select * from selfies");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id, lat, lng, id_address, nombre, pais, provincia, ciudad, persona, address, visible from selfies");
 			$consulta->execute();			
-			return $consulta->fetchAll(PDO::FETCH_OBJ);		
-			// return $consulta->fetchAll(PDO::FETCH_CLASS, "cd");		
+			// return $consulta->fetchAll(PDO::FETCH_OBJ);		
+			return $consulta->fetchAll(PDO::FETCH_CLASS, "Selfie");		
 	}
 
 	public static function getOneSelfie($id) 
@@ -85,7 +86,8 @@ class SelfieDAO
 		$consulta =$objetoAccesoDato->RetornarConsulta($query);
 		$consulta->execute(array($id));
 		
-		return $consulta->fetchAll(PDO::FETCH_OBJ);		;				
+		// return $consulta->fetchAll(PDO::FETCH_CLASS, 'Selfie');
+		return $consulta->fetchAll(PDO::FETCH_OBJ);		
 
 			
 	}
