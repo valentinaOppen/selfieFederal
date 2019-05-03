@@ -1,0 +1,21 @@
+<!-- Muestro y configuro mapa -->
+<agm-map
+	[zoom]="zoom"
+	[latitude]="_latLng.lat"
+	[longitude]="_latLng.lng"
+	(mapClick)="handlerMapClick($event)">
+	<!-- Muestro y configuro marcadores en el mapa -->
+	<agm-marker *ngFor="let item of markers"
+		[latitude]="item.lat"
+		[longitude]="item.lng"
+		[draggable]="item.draggable"
+		openInfoWindow="true"
+		iconUrl="./assets/MapMarker.png">
+		<!-- Seteo la info de la persona al hacer click -->
+		<agm-info-window *ngIf="marcadores">
+			<app-marker-info
+			[markerItem]='item'
+			></app-marker-info>
+		</agm-info-window>
+	</agm-marker>
+</agm-map>
