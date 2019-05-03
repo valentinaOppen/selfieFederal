@@ -13,6 +13,8 @@ import { WsService } from './services/ws.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MapaHomeComponent } from './components/mapa-home/mapa-home.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { MapsComponent } from './components/maps/maps.component';
 
 import { MarkerInfoComponent } from "./components/maps/marker-info/markerInfoComponent";
@@ -32,7 +34,9 @@ import { UploadSelfieComponent } from './components/upload-selfie/upload-selfie.
     MapClickComponent,
     MapComponent,
     CamaraComponent,
-    UploadSelfieComponent
+    UploadSelfieComponent,
+    MapaHomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
