@@ -13,6 +13,8 @@ export class MapComponent implements OnInit {
 		lat: -34.6156625,
 		lng: -58.5033386
 	};
+	@Input() marcadores = true;
+	@Input() zoom = 8;
 	@Input()
 	set latLng(value: ILatLng) {
 		// console.log(value)

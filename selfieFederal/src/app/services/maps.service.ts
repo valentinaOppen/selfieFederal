@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { 
-	// GoogleMapsAPIWrapper,
+	GoogleMapsAPIWrapper,
 	MapsAPILoader, } from '@agm/core/services';
 import { Icoords,
 	// Imarker,
@@ -15,7 +15,7 @@ export class MapsService {
 	private geocoder;
 	constructor(public mapsApiLoader: MapsAPILoader) {
 		this.mapsApiLoader.load().then(() => {
-			this.geocoder = new google.maps.Geocoder();			
+			this.geocoder = new google.maps.Geocoder();
 		});
 	}
 
@@ -33,7 +33,10 @@ export class MapsService {
 				// componentRestrictions: ['administrativeArea'],
 				region: 'AR'
 			}, (results, status) => {
-				console.log(results, status)
+				console.log(results, status);
+				if (status !== 'OK') {
+					return reject({error: "Error en mapa."});
+				}
 				resolve({
 					status, address: this.decomposeAddressComponents(results), ...coords
 				});

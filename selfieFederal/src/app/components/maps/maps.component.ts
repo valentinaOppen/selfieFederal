@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Icoords, Imarker, IPersona } from './imaps';
+import {WsService } from '../../services/ws.service'; 
 
 @Component({
   selector: 'massa-maps',
@@ -11,36 +12,19 @@ export class MapsComponent implements OnInit {
     lat: -35.6501339,
     lng: -60.7093851
   }
-  markers: Imarker[];
+  markers: any; //Imarker[];
   persona = {
     img: null,
     nombre: ''
   };
-  constructor() { }
+  constructor(private ws: WsService) { }
 
   ngOnInit() {
-    this.markers = [
-      {
-        lat: -35.6501339,
-        lng: -60.7093851,
-        label: 'Que label',
-        draggable: true,
-        persona: {
-          img: null,
-          nombre: 'Nombre de la Persona'
-        }
-      },
-      {
-        lat: -35.7504339,
-        lng: -60.7095851,
-        label: 'Que label',
-        draggable: true,
-        persona: {
-          img: null,
-          nombre: 'Votante de Massa 1'
-        }
-      }
-    ];
+    this.ws.getSelfies()
+      .subscribe(data => {
+        console.log(data);
+        this.markers = data;
+      });
   }
 
   handlerClick(e: Imarker) {

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+// import { WsService } from '../../../services/ws.service';
 
 @Component({
   selector: 'app-marker-info',
@@ -25,6 +26,7 @@ export class MarkerInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }
