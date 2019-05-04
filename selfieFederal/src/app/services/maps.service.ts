@@ -1,3 +1,4 @@
+/// <reference types="@types/googlemaps" />
 import { Injectable } from '@angular/core';
 import { 
 	GoogleMapsAPIWrapper,
@@ -6,7 +7,7 @@ import { Icoords,
 	// Imarker,
 	ILatLng,
 	ILocation as Location } from '../components/maps/imaps';
-
+// import { } from '@types/googlemaps';
 @Injectable({
 	providedIn: 'root'
 })
@@ -33,7 +34,7 @@ export class MapsService {
 				// componentRestrictions: ['administrativeArea'],
 				region: 'AR'
 			}, (results, status) => {
-				console.log(results, status);
+				// console.log(results, status);
 				if (status !== 'OK') {
 					return reject({error: "Error en mapa."});
 				}

@@ -3,7 +3,8 @@
   <div style="text-align:center">
     <div>
       <p>{{seconds}}</p>
-      <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+      <webcam
+      [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
       [imageQuality]="0.5" [imageType]="image/webp"
       ></webcam>
       <br />
@@ -12,7 +13,6 @@
   </div>
   <div *ngIf="webcamImage">
     <h2>Nice one!</h2>
-    <img [src]="webcamImage.imageAsDataUrl" width="200px" />
-    <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese nombre">
+    <!-- <img [src]="webcamImage.imageAsDataUrl" width="200px" /> -->
   </div>
 </div>

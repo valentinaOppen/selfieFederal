@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { WsService } from '../../../services/ws.service'; 
 import { Icoords, Imarker, IPersona } from '../imaps';
 
@@ -8,7 +8,7 @@ import { Icoords, Imarker, IPersona } from '../imaps';
   styleUrls: ['./map-click.component.css']
 })
 export class MapClickComponent implements OnInit {
-
+  @Output() mapClick = new EventEmitter<any>();
   markers: Imarker[];
   persona = {
     // img: null,
@@ -21,10 +21,8 @@ export class MapClickComponent implements OnInit {
   }
 
   handlerClick(e: Imarker) {
-    console.log(e);
-
-    // e.persona = this.persona;
-    e.draggable = true;
+    // console.log(e);
+    this.mapClick.emit(e)
     this.markers = [e];
   }
 }

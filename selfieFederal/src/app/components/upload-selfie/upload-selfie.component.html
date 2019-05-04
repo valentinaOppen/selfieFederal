@@ -1,5 +1,14 @@
 <div>
-  <app-camara></app-camara>
-  
-  <map-click></map-click>
+<div>
+  <app-camara
+  (imageCapture)="imageCapture($event)"
+  ></app-camara>
+</div>  
+<div>
+  <map-click
+  (mapClick)="handleMapClick($event)"
+  ></map-click>
+</div>
+    <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese nombre">
+    <button (click)="click()">Cargar</button>
 </div>

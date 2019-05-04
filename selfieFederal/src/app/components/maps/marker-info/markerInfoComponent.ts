@@ -22,6 +22,8 @@ export class MarkerInfoComponent implements OnInit {
     img: 'https://www.w3schools.com/w3css/img_avatar3.png',
     nombre: 'Jon Doe'
   };
+
+  SRC = 'http://127.0.0.1:8080/selfieFederal/';
   constructor() {
   }
 
@@ -29,4 +31,7 @@ export class MarkerInfoComponent implements OnInit {
 
   }
 
+  getImageSrc(image) {
+    return `${this.SRC}${image}`;
+  }
 }

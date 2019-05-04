@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { WebcamImage } from 'ngx-webcam';
 import { Subject, Observable } from 'rxjs';
 
@@ -8,6 +8,7 @@ import { Subject, Observable } from 'rxjs';
   styleUrls: ['./camara.component.css']
 })
 export class CamaraComponent implements OnInit {
+  @Output() imageCapture = new EventEmitter < WebcamImage>();
   private trigger: Subject<void> = new Subject<void>();
   public webcamImage: WebcamImage = null;
   
@@ -24,8 +25,9 @@ export class CamaraComponent implements OnInit {
   }
 
   public handleImage(webcamImage: WebcamImage): void {
-    console.log('received webcam image', webcamImage);
+    // console.log('received webcam image', webcamImage);
     this.webcamImage = webcamImage;
+    this.imageCapture.emit(webcamImage);
   }
 
   public get triggerObservable(): Observable<void> {

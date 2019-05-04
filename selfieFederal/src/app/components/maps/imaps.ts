@@ -6,7 +6,8 @@ export interface Imarker {
     lng: number;
     label?: string;
     draggable: boolean;
-    persona?: IPersona
+    persona?: IPersona;
+    address: ILocation;
 }
 export interface Icoords {
     coords: {
