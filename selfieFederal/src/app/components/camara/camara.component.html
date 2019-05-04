@@ -1,18 +1,16 @@
 
 <div >
-  <div style="text-align:center">
-    <div>
-      <p>{{seconds}}</p>
-      <webcam
+    <div >
+      <webcam 
       [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
-      [imageQuality]="0.5" [imageType]="image/webp"
+      [imageQuality]="0.5" [imageType]="image/webp" allowCameraSwitch="true"
       ></webcam>
       <br />
       <button id="snapshotBtn" (click)="triggerSnapshot();">Take A Snapshot</button>
     </div>
-  </div>
-  <div *ngIf="webcamImage">
+  <!-- </div> -->
+  <!-- <div *ngIf="webcamImage">
     <h2>Nice one!</h2>
-    <!-- <img [src]="webcamImage.imageAsDataUrl" width="200px" /> -->
-  </div>
+    <img [src]="webcamImage.imageAsDataUrl" width="200px" />
+  </div> -->
 </div>

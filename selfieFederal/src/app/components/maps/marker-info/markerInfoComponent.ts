@@ -19,7 +19,7 @@ export class MarkerInfoComponent implements OnInit {
     return this._markerItem;
   }
   private _personaDefault = {
-    img: 'https://www.w3schools.com/w3css/img_avatar3.png',
+    img: './images/img_avatar3.png',
     nombre: 'Jon Doe'
   };
 

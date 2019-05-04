@@ -8,10 +8,13 @@ import { Subject, Observable } from 'rxjs';
   styleUrls: ['./camara.component.css']
 })
 export class CamaraComponent implements OnInit {
+
   @Output() imageCapture = new EventEmitter < WebcamImage>();
   private trigger: Subject<void> = new Subject<void>();
   public webcamImage: WebcamImage = null;
   
+  width= '1000px';
+  heigth = 'auto'
   captureImage = false;
   seconds;
   constructor() { }
@@ -19,7 +22,7 @@ export class CamaraComponent implements OnInit {
   ngOnInit() {
   }
   public triggerSnapshot(): void {
-    this.seconds = 3;
+    
     this.trigger.next();
     this.seconds = null;
   }

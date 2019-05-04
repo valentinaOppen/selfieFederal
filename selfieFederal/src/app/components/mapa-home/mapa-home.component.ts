@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgxSmartModalService } from 'ngx-smart-modal';
+import { UploadSelfieComponent } from '../upload-selfie/upload-selfie.component';
 
 @Component({
   selector: 'app-mapa-home',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mapa-home.component.css']
 })
 export class MapaHomeComponent implements OnInit {
-
-  constructor() { }
+  @ViewChild(UploadSelfieComponent) upload: UploadSelfieComponent;
+  data;
+  constructor(public ngxSmartModalService: NgxSmartModalService) { }
 
   ngOnInit() {
   }
 
+  openModal() {
+    this.upload.mostrar = true;
+    this.ngxSmartModalService.getModal('myModal').open();
+  }
+
+  close(e) {
+    this.upload.mostrar = false;
+    console.log(this.upload)
+    this.data = Date();
+  }
 }

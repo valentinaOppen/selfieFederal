@@ -1,14 +1,18 @@
 <div>
-<div>
-  <app-camara
-  (imageCapture)="imageCapture($event)"
-  ></app-camara>
-</div>  
-<div>
-  <map-click
-  (mapClick)="handleMapClick($event)"
-  ></map-click>
-</div>
-    <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese nombre">
+  <div *ngIf="mostrar" >
+    <app-camara
+    (imageCapture)="imageCapture($event)"
+    ></app-camara>
+  </div>  
+  <div *ngIf="webcamImage">
+    <div>
+      <img [src]="webcamImage.imageAsDataUrl" width="200px" />
+
+    </div>
+    <map-click
+    (mapClick)="handleMapClick($event)"
+    ></map-click>
+  </div>
+    <!-- <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese nombre"> -->
     <button (click)="click()">Cargar</button>
 </div>

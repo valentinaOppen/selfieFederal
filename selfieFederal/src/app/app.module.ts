@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { WebcamModule } from 'ngx-webcam';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 import { MapsService } from './services/maps.service';
 import { HttpService } from './services/http.service';
@@ -46,7 +47,8 @@ import { UploadSelfieComponent } from './components/upload-selfie/upload-selfie.
       apiKey: 'AIzaSyAtgzQpQEVf70TLbg_UAy0L5CcEYNRdw1w'
     }),
     WebcamModule,
-    FormsModule
+    FormsModule,
+    NgxSmartModalModule.forRoot() 
   ],
   providers: [
     GoogleMapsAPIWrapper,

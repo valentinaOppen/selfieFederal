@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { WebcamImage } from 'ngx-webcam';
 import { Imarker } from '../maps/imaps';
 import { WsService } from '../../services/ws.service';
@@ -9,17 +9,26 @@ import { WsService } from '../../services/ws.service';
   styleUrls: ['./upload-selfie.component.css']
 })
 export class UploadSelfieComponent implements OnInit {
+  
+  @Input('default')
+  set default(value: any) {
+    
+    this.webcamImage = undefined;
+  }
+  mostrar = false;;
   webcamImage: WebcamImage;
   selfie: Imarker;
   nombre;
   constructor(private ws: WsService) { }
 
   ngOnInit() {
+    // console.log(this.webcamImage);
   }
 
   imageCapture(e) {
-    console.log(e);
+    // console.log(e);
     this.webcamImage = e;
+    this.mostrar = false;
   }
 
   handleMapClick(e) {
@@ -29,8 +38,9 @@ export class UploadSelfieComponent implements OnInit {
   }
 
   click() {
+  
     this.selfie.persona = {
-      nombre: this.nombre,
+      nombre: "sin nombre",
       img: this.webcamImage.imageAsBase64
     }
     // this.selfie.address = 

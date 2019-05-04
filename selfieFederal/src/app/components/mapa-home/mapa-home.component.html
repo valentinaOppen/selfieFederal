@@ -21,7 +21,7 @@
             Compartí tu <br><span class="spanSelfieFederal">#SelfieFederal!</span>
           </div>
           <div class="divButtons">
-            <button class="btnMapa abrirCamara">ABRIR CAMARA</button>
+            <button (click)="openModal()" class="btnMapa abrirCamara">ABRIR CAMARA</button>
             <button class="btnMapa cargarFoto">CARGAR FOTO</button>
           </div>
         </div>
@@ -29,3 +29,8 @@
     </div>
   </div>
 </div>
+<ngx-smart-modal #myModal identifier="myModal" (onClose)="close($event)">
+  <upload-selfie [default]="data"></upload-selfie>
+
+  <button (click)="myModal.close()">Close</button>
+</ngx-smart-modal>
