@@ -20,6 +20,11 @@ export class MapaHomeComponent implements OnInit {
     this.ngxSmartModalService.getModal('myModal').open();
   }
 
+  cargado(e) {
+    
+    this.ngxSmartModalService.getModal('myModal').close();
+
+  }
   close(e) {
     this.upload.mostrar = false;
     console.log(this.upload)

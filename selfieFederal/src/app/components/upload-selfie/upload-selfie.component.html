@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="!cargando">
   <div *ngIf="mostrar" >
     <app-camara
     (imageCapture)="imageCapture($event)"
@@ -7,12 +7,15 @@
   <div *ngIf="webcamImage">
     <div>
       <img [src]="webcamImage.imageAsDataUrl" width="200px" />
-
+      <button (click)="otra()">Tomar otra</button>
     </div>
     <map-click
     (mapClick)="handleMapClick($event)"
     ></map-click>
   </div>
     <!-- <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese nombre"> -->
-    <button (click)="click()">Cargar</button>
+    <button (click)="click()" [disabled]="!selfie">Cargar</button>
+</div>
+<div *ngIf="cargando">
+  <app-spinner></app-spinner>
 </div>

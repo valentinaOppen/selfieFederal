@@ -24,6 +24,7 @@ import { MapClickComponent } from './components/maps/map-click/map-click.compone
 import { MapComponent } from './components/maps/map/map.component';
 import { CamaraComponent } from './components/camara/camara.component';
 import { UploadSelfieComponent } from './components/upload-selfie/upload-selfie.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UploadSelfieComponent } from './components/upload-selfie/upload-selfie.
     CamaraComponent,
     UploadSelfieComponent,
     MapaHomeComponent,
-    FooterComponent
+    FooterComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
