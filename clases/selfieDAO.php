@@ -1,5 +1,5 @@
 <?php
-include_once './clases/selfie.php';
+// include_once './clases/selfie.php';
 class SelfieDAO
 {
 	public $id;
@@ -57,14 +57,14 @@ class SelfieDAO
 	//  }
 	
   
-	public function insertarSelfie($selfie)
+	public static function insertarSelfie($selfie)
 	{
-		$query = "INSERT into selfies (lat, lng, id_address, nombre, pais, provincia, ciudad, address, visible) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		$query = "INSERT into selfies (lat, lng, id_address, nombre, pais, provincia, ciudad, persona, address, visible) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta($query);
-		$consulta->execute(array(
-			$selfie->lat, $selfie->lng, $selfie->id_address, $selfie->nombre, $selfie->pais, 
-			$selfie->provincia, $selfie->ciudad, $selfie->address, 0
+		$consulta->execute(array($selfie['lat'], $selfie['lng'], '$selfie["id_address"]', $selfie['persona']['nombre'], '$selfie["pais"]', 
+			'$selfie["provincia"]', '$selfie["ciudad"]', json_encode($selfie['persona']), json_encode($selfie['address']), 0
 		));
 		
 		return $objetoAccesoDato->RetornarUltimoIdInsertado();
