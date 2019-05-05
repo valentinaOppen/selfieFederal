@@ -1,0 +1,19 @@
+<div *ngIf="!cargando">
+  <app-upload (onCargar)="_onCargar($event)"></app-upload>
+  
+  <div *ngIf="webcamImage">
+    <div>
+      <!-- <img [src]="webcamImage.imageAsDataUrl" width="200px" /> -->
+      <!-- <button (click)="otra()">Tomar otra</button> -->
+    </div>
+    <map-click (mapClick)="handleMapClick($event)"></map-click>
+  </div>
+  <!-- <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese nombre"> -->
+  <button (click)="click()" [disabled]="!selfie">Cargar</button>
+</div>
+<div *ngIf="cargando">
+  <app-spinner></app-spinner>
+</div>
+<div *ngIf="error">
+  <h3>Error al cargar.</h3>
+</div>

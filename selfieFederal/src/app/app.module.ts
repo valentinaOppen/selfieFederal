@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { WebcamModule } from 'ngx-webcam';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { FileDropModule } from 'ngx-file-drop';
 
 import { MapsService } from './services/maps.service';
 import { HttpService } from './services/http.service';
@@ -25,6 +26,8 @@ import { MapComponent } from './components/maps/map/map.component';
 import { CamaraComponent } from './components/camara/camara.component';
 import { UploadSelfieComponent } from './components/upload-selfie/upload-selfie.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { UploadFileComponent } from './components/upload-file/upload-file.component';
+import { UploadComponent } from './components/upload-file/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     UploadSelfieComponent,
     MapaHomeComponent,
     FooterComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UploadFileComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     }),
     WebcamModule,
     FormsModule,
-    NgxSmartModalModule.forRoot() 
+    NgxSmartModalModule.forRoot() ,
+    FileDropModule
   ],
   providers: [
     GoogleMapsAPIWrapper,

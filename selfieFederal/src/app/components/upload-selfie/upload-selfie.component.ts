@@ -17,6 +17,7 @@ export class UploadSelfieComponent implements OnInit {
   }
   cargando = false;
   mostrar = false;;
+  error = false;
   webcamImage: WebcamImage;
   selfie: Imarker;
   nombre;
@@ -27,7 +28,7 @@ export class UploadSelfieComponent implements OnInit {
   }
 
   imageCapture(e) {
-    // console.log(e);
+    console.log(e);
     this.webcamImage = e;
     this.mostrar = false;
   }
@@ -42,6 +43,7 @@ export class UploadSelfieComponent implements OnInit {
     this.webcamImage = null;
     this.cargando = false;
     this.mostrar = true;
+    this.error = false;
   }
   click() {
     // this.cargando = true;
@@ -60,7 +62,8 @@ export class UploadSelfieComponent implements OnInit {
     }, e => {
       console.log(e)
         this.cargando = false;
-        this.onCargar.emit({ cargado: false });
+        this.error = true;
+        // this.onCargar.emit({ cargado: false });
     });
     console.log(this.selfie);
   }

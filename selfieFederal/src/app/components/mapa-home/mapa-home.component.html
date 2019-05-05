@@ -8,7 +8,7 @@
       <div class="gmap_canvas">
         <map-markers></map-markers>
           <!-- <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=university%20of%20san%20francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> -->
-          <a href="https://www.crocothemes.net"></a>
+          <!-- <a href="https://www.crocothemes.net"></a> -->
       </div>
           <style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
           </style>
@@ -22,15 +22,29 @@
           </div>
           <div class="divButtons">
             <button (click)="openModal()" class="btnMapa abrirCamara">ABRIR CAMARA</button>
-            <button class="btnMapa cargarFoto">CARGAR FOTO</button>
+            <button (click)="openModalFile()" class="btnMapa cargarFoto">CARGAR FOTO</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<ngx-smart-modal #myModal identifier="myModal" (onClose)="close($event)" (onDismissFinished)="close($event)">
-  <upload-selfie [default]="data" (onCargar)="cargado($event)"></upload-selfie>
 
-  <!-- <button (click)="myModal.close()">Close</button> -->
+<!-- ABRIR CAMARA -->
+<ngx-smart-modal
+  customClass="msg-modal"
+  #myModal identifier="myModal"
+  (onClose)="close($event)"
+  (onDismissFinished)="close($event)">
+  <upload-selfie [default]="data" (onCargar)="cargado($event)"></upload-selfie>
+</ngx-smart-modal>
+<!-- CARGAR FOTO -->
+<ngx-smart-modal
+  customClass="msg-modal"
+  #modalFile identifier="modalFile"
+   (onClose)="close($event)"
+  (onDismissFinished)="close($event)"
+  >
+    <upload-file (onCargar)="cargadoFile($event)"></upload-file>
+  <!-- <upload-selfie [default]="data" (onCargar)="cargado($event)"></upload-selfie> -->
 </ngx-smart-modal>
