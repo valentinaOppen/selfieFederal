@@ -1,0 +1,65 @@
+.divContainerFooter
+{
+    background-color: #57B3B5;
+    width:100%;
+    height: fit-content;
+    padding:1em;
+    display: flex;
+    color:white;
+}
+
+.divFooter
+{
+    width:75%;
+    margin: auto auto;
+    display: flex;
+}
+
+.divRedesFooter a
+{
+    color:white;
+}
+
+#navWappFooter
+{
+    background-color: #67CE5E;
+    border-radius: 20px;
+    padding: 0 1em;
+}
+
+.navWebFooter
+{
+    color:white !important;
+    font-family: chivoLight;
+}
+
+.spanWhatsappFooter
+{
+    font-family: chivoReg;
+    margin-right:0.4em;
+}
+
+.fa-whatsapp
+{
+    vertical-align: middle;
+}
+
+.divSumateWappFooter
+{
+    display: flex;
+}
+
+.divSumateWapp
+{
+    display: flex;
+    width: fit-content;
+    margin: auto auto;
+    font-size:2vw;
+}
+
+.sumate
+{
+    font-size: 4vw;
+    width: fit-content;
+    margin-right: 0.5em;
+}

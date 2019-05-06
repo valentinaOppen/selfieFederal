@@ -55,8 +55,10 @@ class SelfiesApi
 
     static public function setSelfie($request, $response) {
         $body = $request->getParsedBody();
-        $selfie = new Selfie($body);
-        $rta = SelfieDAO::insertarSelfie($selfie);
-        return $response->withJson($selfie);
+        // $selfie = new Selfie($body);
+        // $rta = SelfieDAO::insertarSelfie($selfie);
+        
+        $rta = Selfie::cargarSelfie($body);
+        return $response->withJson($rta);
     }
 }

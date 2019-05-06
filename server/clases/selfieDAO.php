@@ -1,4 +1,5 @@
 <?php
+// include_once './clases/selfie.php';
 class SelfieDAO
 {
 	public $id;
@@ -56,14 +57,14 @@ class SelfieDAO
 	//  }
 	
   
-	public function insertarSelfie($selfie)
+	public static function insertarSelfie($selfie)
 	{
-		$query = "INSERT into selfies (lat, lng, id_address, nombre, pais, provincia, ciudad, address, visible) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		$query = "INSERT into selfies (lat, lng, id_address, nombre, pais, provincia, ciudad, persona, address, visible, fecha) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())";
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta($query);
-		$consulta->execute(array(
-			$selfie->lat, $selfie->lng, $selfie->id_address, $selfie->nombre, $selfie->pais, 
-			$selfie->provincia, $selfie->ciudad, $selfie->address, 0
+		$rta = $consulta->execute(array($selfie['lat'], $selfie['lng'], '$selfie["id_address"]', 'SinNombre', '$selfie["pais"]', 
+			'$selfie["provincia"]', '$selfie["ciudad"]', json_encode($selfie['persona']), json_encode($selfie['address']), 0
 		));
 		
 		return $objetoAccesoDato->RetornarUltimoIdInsertado();
@@ -72,10 +73,10 @@ class SelfieDAO
   	public static function getAllSelfies()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select * from selfies");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id, lat, lng, id_address, nombre, pais, provincia, ciudad, persona, address, visible from selfies");
 			$consulta->execute();			
-			return $consulta->fetchAll(PDO::FETCH_OBJ);		
-			// return $consulta->fetchAll(PDO::FETCH_CLASS, "cd");		
+			// return $consulta->fetchAll(PDO::FETCH_OBJ);		
+			return $consulta->fetchAll(PDO::FETCH_CLASS, "Selfie");		
 	}
 
 	public static function getOneSelfie($id) 
@@ -85,7 +86,8 @@ class SelfieDAO
 		$consulta =$objetoAccesoDato->RetornarConsulta($query);
 		$consulta->execute(array($id));
 		
-		return $consulta->fetchAll(PDO::FETCH_OBJ);		;				
+		// return $consulta->fetchAll(PDO::FETCH_CLASS, 'Selfie');
+		return $consulta->fetchAll(PDO::FETCH_OBJ);		
 
 			
 	}
