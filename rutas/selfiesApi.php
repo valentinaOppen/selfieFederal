@@ -59,6 +59,6 @@ class SelfiesApi
         // $rta = SelfieDAO::insertarSelfie($selfie);
         
         $rta = Selfie::cargarSelfie($body);
-        return $response->withJson($body);
+        return $response->withJson($rta);
     }
 }

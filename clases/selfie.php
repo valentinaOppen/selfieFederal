@@ -33,7 +33,8 @@ class Selfie
 	}
 
 	static public function cargarSelfie($selfie) {
-		$rta = Images::base64_to_jpeg($selfie['persona']['img'], $selfie['persona']['nombre']);
+		$rta = Images::base64_to_jpeg($selfie['persona']['img'], Date('U').'.');
+
 		if ($rta) {
 			$selfie['persona']['img'] = $rta;
 			// var_dump($selfie);

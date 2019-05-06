@@ -60,10 +60,10 @@ class SelfieDAO
 	public static function insertarSelfie($selfie)
 	{
 		
-		$query = "INSERT into selfies (lat, lng, id_address, nombre, pais, provincia, ciudad, persona, address, visible) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$query = "INSERT into selfies (lat, lng, id_address, nombre, pais, provincia, ciudad, persona, address, visible, fecha) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())";
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta($query);
-		$consulta->execute(array($selfie['lat'], $selfie['lng'], '$selfie["id_address"]', $selfie['persona']['nombre'], '$selfie["pais"]', 
+		$rta = $consulta->execute(array($selfie['lat'], $selfie['lng'], '$selfie["id_address"]', 'SinNombre', '$selfie["pais"]', 
 			'$selfie["provincia"]', '$selfie["ciudad"]', json_encode($selfie['persona']), json_encode($selfie['address']), 0
 		));
 		
