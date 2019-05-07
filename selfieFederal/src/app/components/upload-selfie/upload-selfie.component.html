@@ -1,21 +1,29 @@
 <div *ngIf="!cargando">
-  <div *ngIf="mostrar" >
-    <app-camara
+  <!-- PASO 1 -->
+  <div *ngIf="paso===0">
+    <app-camara *ngIf="verCamara"
     (imageCapture)="imageCapture($event)"
     ></app-camara>
   </div>  
-  <div *ngIf="webcamImage">
+  <!-- PASO 2 -->
+  <!-- <div *ngIf="webcamImage"> -->
+  <div *ngIf="paso===1">
     <div>
-      <img [src]="webcamImage.imageAsDataUrl" width="200px" />
-      <button (click)="otra()">Tomar otra</button>
+      <img *ngIf="webcamImage" [src]="webcamImage.imageAsDataUrl"  />
+      <!-- <button (click)="otra()">Tomar otra</button> -->
+      <button (click)="clickFoto()" >Cargar</button>
     </div>
-    <map-click
+  </div>
+  <!-- PASO 3 -->
+  <div *ngIf="paso===2">
+    <map-click 
     (mapClick)="handleMapClick($event)"
     ></map-click>
+    <button (click)="click()" [disabled]="!selfie">Cargar</button>
   </div>
     <!-- <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese nombre"> -->
-    <button (click)="click()" [disabled]="!selfie">Cargar</button>
 </div>
+
 <div *ngIf="cargando">
   <app-spinner></app-spinner>
 </div>

@@ -21,6 +21,8 @@ export class UploadSelfieComponent implements OnInit {
   webcamImage: WebcamImage;
   selfie: Imarker;
   nombre;
+  paso = 0;
+  verCamara = false;
   constructor(private ws: WsService) { }
 
   ngOnInit() {
@@ -28,9 +30,11 @@ export class UploadSelfieComponent implements OnInit {
   }
 
   imageCapture(e) {
-    console.log(e);
+    // console.log(e);
     this.webcamImage = e;
     this.mostrar = false;
+    this.paso = 1;
+    this.verCamara = false;
   }
 
   handleMapClick(e) {
@@ -44,6 +48,10 @@ export class UploadSelfieComponent implements OnInit {
     this.cargando = false;
     this.mostrar = true;
     this.error = false;
+  }
+
+  clickFoto() {
+    this.paso = 2;
   }
   click() {
     // this.cargando = true;
@@ -59,10 +67,12 @@ export class UploadSelfieComponent implements OnInit {
       console.log(data)
       this.cargando = false;
       this.onCargar.emit({ cargado: true });
+      this.paso = 0;
     }, e => {
       console.log(e)
         this.cargando = false;
         this.error = true;
+        this.paso = 0;
         // this.onCargar.emit({ cargado: false });
     });
     console.log(this.selfie);

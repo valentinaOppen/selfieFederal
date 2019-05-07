@@ -70,7 +70,7 @@ class SelfieDAO
 			$ciudad = $selfie['address']['address_state_2'];
 			$sitio = $selfie['address']['sitio'];
 		}
-		$query = "INSERT into selfies (lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, fecha) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())";
+		$query = "INSERT into selfies (lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, fecha) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta($query);
 		$rta = $consulta->execute(array($selfie['lat'], $selfie['lng'], $sitio, $id_pais, $id_state, $id_sitio, $pais, $provincia, $ciudad, json_encode($selfie['persona']), json_encode($selfie['address'])));
@@ -99,7 +99,7 @@ class SelfieDAO
 	public static function getTwoSelfies()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta( "select id, lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, visible from selfies LIMIT 2");
+			$consulta =$objetoAccesoDato->RetornarConsulta( "select id, lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, visible from selfies order by fecha DESC LIMIT 2");
 			$consulta->execute();			
 			// return $consulta->fetchAll(PDO::FETCH_OBJ);		
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "Selfie");		
