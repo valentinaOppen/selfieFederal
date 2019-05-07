@@ -47,7 +47,7 @@
         <div class="divGaleriaFooterMapaMobile">
           <div class="imgsFooterMapMobile">
             <div class="imgFooterMapMobile">
-                <img [src]="getImageSrc(markers[0].persona.img)" height="75px" alt="">                 
+                <img *ngIf="markers && markers[0]" [src]="getImageSrc(markers[0].persona.img)" height="75px" alt="">                 
             </div>
           </div>  
         </div>

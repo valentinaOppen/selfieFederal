@@ -25,6 +25,7 @@ export class MapaHomeComponent implements OnInit {
   {
     this.ws.getSelfies2().subscribe(data => 
       {
+        console.log(data)
         this.markers = data;
       })
   }
@@ -69,6 +70,7 @@ export class MapaHomeComponent implements OnInit {
   }
 
   getImageSrc(image) {    
+    
     return `${this.SRC}${image}`;
   }
 }
