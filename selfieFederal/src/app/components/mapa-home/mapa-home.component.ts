@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { UploadSelfieComponent } from '../upload-selfie/upload-selfie.component';
 import 'ngx-smart-modal/ngx-smart-modal.css';
+import { WsService } from '../../services/ws.service'; 
 
 @Component({
   selector: 'app-mapa-home',
@@ -11,9 +12,18 @@ import 'ngx-smart-modal/ngx-smart-modal.css';
 export class MapaHomeComponent implements OnInit {
   @ViewChild(UploadSelfieComponent) upload: UploadSelfieComponent;
   data;
-  constructor(public ngxSmartModalService: NgxSmartModalService) { }
+  constructor(public ngxSmartModalService: NgxSmartModalService,
+              private ws: WsService) { }
 
-  ngOnInit() {
+  markers: Array<any>; //Imarker[];
+  SRC = 'http://127.0.0.1:8080/selfieFederal/';
+
+  ngOnInit() 
+  {
+    this.ws.getSelfies().subscribe(data => 
+      {
+        this.markers = data;
+      })
   }
 
   openModal() {
@@ -40,5 +50,10 @@ export class MapaHomeComponent implements OnInit {
 
     console.log(this.upload)
     this.data = Date();
+  }
+
+  getImageSrc(image) {
+    console.log("IMAG:"+image.persona.image);
+    return `${this.SRC}${image}`;
   }
 }

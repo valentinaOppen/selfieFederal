@@ -3,28 +3,35 @@
     background-color: #57B3B5;
     width:100%;
     height: fit-content;
-    padding:1em;
+    padding:0.5em;
     display: flex;
-    color:white;
+    color:white;    
+    bottom:0;
+    font-size: 1.4vw;
+    font-family: chivoBold;
 }
 
 .divFooter
 {
     width:75%;
     margin: auto auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
 }
 
 .divRedesFooter a
 {
     color:white;
+    margin: 0.7vw;
 }
 
 #navWappFooter
 {
     background-color: #67CE5E;
     border-radius: 20px;
-    padding: 0 1em;
+    padding: 0.2em 0.4em;
+    font-size:1vw;
+    margin: auto 0 auto 0.5vw;
 }
 
 .navWebFooter
@@ -47,6 +54,8 @@
 .divSumateWappFooter
 {
     display: flex;
+    width: fit-content;
+    margin: auto auto;
 }
 
 .divSumateWapp
@@ -62,4 +71,14 @@
     font-size: 4vw;
     width: fit-content;
     margin-right: 0.5em;
+}
+
+.selfieFederal
+{
+    text-align: right;
+}
+
+.spanFederal
+{
+    font-family: chivoReg;
 }
