@@ -28,6 +28,7 @@ import { UploadSelfieComponent } from './components/upload-selfie/upload-selfie.
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
 import { UploadComponent } from './components/upload-file/upload/upload.component';
+import { GaleriaComponent } from './components/galeria/galeria.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { UploadComponent } from './components/upload-file/upload/upload.componen
     FooterComponent,
     SpinnerComponent,
     UploadFileComponent,
-    UploadComponent
+    UploadComponent,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,

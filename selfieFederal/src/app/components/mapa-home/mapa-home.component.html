@@ -25,12 +25,30 @@
           <div class="divButtons">
             <button (click)="openModal()" class="btnMapa abrirCamara">ABRIR CAMARA</button>
             <button (click)="openModalFile()" class="btnMapa cargarFoto">CARGAR FOTO</button>
-          </div>
+          </div>          
+        </div>
+        <div class="divGaleriaFooterMapa">
           <div class="imgsFooterMap" *ngFor="let mark of markers">
             <div class="imgFooterMap">
-                <img [src]="getImageSrc(mark)" height="75px" alt=""> 
+                <img [src]="getImageSrc(mark.persona.img)" height="75px" alt=""> 
+                <div class="footerImgMap">
+                  <div class="comparti">COMPARTIR</div>
+                  <div class="redesSocialesFooterImg">
+                      <a href="https://twitter.com/SergioMassa" target="_blank"><i class="fab fa-twitter"></i></a>
+                      <a href="https://www.facebook.com/SergioMassaOK/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                      <a href="https://www.instagram.com/sergiomassaok" target="_blank"><i class="fab fa-instagram"></i></a>
+                      <a href="https://www.linkedin.com/in/massasergio/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                  </div>
+                </div>
             </div>
           </div>  
+        </div>
+        <div class="divBtnMasFotos">
+          <div class="btnMasFotos">
+            <div class="verMas">VER MÁS</div><span class="spanMas">
+              <i class="fas fa-plus-circle"></i>
+            </span>
+          </div>
         </div>
       </div>
     </div>

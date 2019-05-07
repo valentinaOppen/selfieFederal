@@ -49,6 +49,12 @@ $app->group('/selfies', function() {
 	$this->put('/visible/{id}', \SelfiesApi::class . ':visibleOne');
 });//->add(\MWparaCORS::class . ':HabilitarCORSTodos');
 
+$app->group('/selfies_2', function() {
+	// Traer todos
+	$this->get('[/]', \SelfiesApi::class . ':getTwo');
+	// Traer uno
+});//->add(\MWparaCORS::class . ':HabilitarCORSTodos');
+
 $app->group('/admin', function() {
 
 });

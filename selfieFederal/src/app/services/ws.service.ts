@@ -12,6 +12,10 @@ export class WsService {
     return this.http.get('/selfies');
   }
 
+  getSelfies2():any{
+    return this.http.get('/selfies_2')
+  }
+
   setSelfie(selfie) {
     return this.http.post('/selfies', selfie);
   }

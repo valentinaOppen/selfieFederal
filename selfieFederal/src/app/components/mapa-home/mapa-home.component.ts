@@ -20,7 +20,7 @@ export class MapaHomeComponent implements OnInit {
 
   ngOnInit() 
   {
-    this.ws.getSelfies().subscribe(data => 
+    this.ws.getSelfies2().subscribe(data => 
       {
         this.markers = data;
       })
@@ -52,8 +52,7 @@ export class MapaHomeComponent implements OnInit {
     this.data = Date();
   }
 
-  getImageSrc(image) {
-    console.log("IMAG:"+image.persona.image);
+  getImageSrc(image) {    
     return `${this.SRC}${image}`;
   }
 }

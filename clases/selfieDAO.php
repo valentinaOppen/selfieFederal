@@ -79,6 +79,15 @@ class SelfieDAO
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "Selfie");		
 	}
 
+	public static function getTwoSelfies()
+	{
+			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id, lat, lng, id_address, nombre, pais, provincia, ciudad, persona, address, visible from selfies LIMIT 2");
+			$consulta->execute();			
+			// return $consulta->fetchAll(PDO::FETCH_OBJ);		
+			return $consulta->fetchAll(PDO::FETCH_CLASS, "Selfie");		
+	}
+
 	public static function getOneSelfie($id) 
 	{
 	    $query = "select * from selfies where id = ?";

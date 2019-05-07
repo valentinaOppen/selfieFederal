@@ -10,6 +10,12 @@ class SelfiesApi
     	return $newresponse;
     }
 
+    static public function getTwo($request, $response, $args) {
+        $selfies=SelfieDAO::getTwoSelfies();
+       $newresponse = $response->withJson($selfies, 200);  
+      return $newresponse;
+  }
+
     static public function getOne($request, $response, $args) {
         $id = $args['id'];
         if (!is_numeric($id)) {

@@ -1,0 +1,12 @@
+<div class="divBuscador">
+  <div class="buscador">
+      <input type="text" placeholder="Lugares" name="" id="" class="buscadorMapaHome"><div class="divSearch"><i class="fas fa-search"></i></div>
+  </div>    
+</div>
+<div class="divGaleria">
+  <div class="galeria">
+    <div class="imgsFooterMap" *ngFor="let mark of markers">
+      <img [src]="getImageSrc(mark.persona.img)" height="75px" alt=""> 
+    </div>
+  </div>
+</div>
