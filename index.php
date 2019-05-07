@@ -39,6 +39,8 @@ $app->get('/test', function($req, $res) {
 $app->group('/selfies', function() {
 	// Traer todos
 	$this->get('[/]', \SelfiesApi::class . ':getAll');
+	// Search
+	$this->get('/search/{sitio}', \SelfiesApi::class . ':searchSelfies');
 	// Traer uno
 	$this->get('/{id}', \SelfiesApi::class . ':getOne');
 	// Cargar selfie

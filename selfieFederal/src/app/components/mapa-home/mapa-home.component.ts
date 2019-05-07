@@ -12,11 +12,14 @@ import { WsService } from '../../services/ws.service';
 export class MapaHomeComponent implements OnInit {
   @ViewChild(UploadSelfieComponent) upload: UploadSelfieComponent;
   data;
+  search = '';
   constructor(public ngxSmartModalService: NgxSmartModalService,
               private ws: WsService) { }
 
   markers: Array<any>; //Imarker[];
-  SRC = 'http://127.0.0.1:8080/selfieFederal/';
+  markersSearch: any;
+  SRC = this.ws.SRC; // 'http://127.0.0.1:8080/selfieFederal/';
+  // SRC = 'http://127.0.0.1:8080/selfieFederal/';
 
   ngOnInit() 
   {
@@ -26,6 +29,19 @@ export class MapaHomeComponent implements OnInit {
       })
   }
 
+  buscar() {
+    // console.log(this.search);
+    let { search } = this;
+    if (search.length > 1) {
+      this.ws.searchSelfies(search)
+      .subscribe(data => {
+        // console.log(data)
+        this.markersSearch = data
+      }, e => {
+        console.log(e)
+      })
+    }
+  }
   openModal() {
     this.upload.mostrar = true;
     this.ngxSmartModalService.getModal('myModal').open();
@@ -48,7 +64,7 @@ export class MapaHomeComponent implements OnInit {
     this.upload.mostrar = false;
     this.upload.error = false;
 
-    console.log(this.upload)
+    // console.log(this.upload)
     this.data = Date();
   }
 

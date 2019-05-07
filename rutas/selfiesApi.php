@@ -27,6 +27,17 @@ class SelfiesApi
     	return $newresponse;
     }
 
+    static public function searchSelfies($request, $response, $args)
+    {
+        $sitio = $args['sitio'];
+        if (!$sitio) {
+            $rta['rta'] = "Error en parametro";
+            return $response->withJson($rta);
+        }
+        $selfies = SelfieDAO:: searchSelfies($sitio);
+        $newresponse = $response->withJson($selfies, 200);
+        return $newresponse;
+    }
     static public function deleteOne($request, $response, $args) {
         $id = $args['id'];
         if (!is_numeric($id)) {

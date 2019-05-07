@@ -21,7 +21,7 @@ export class MapClickComponent implements OnInit {
   }
 
   handlerClick(e: Imarker) {
-    // console.log(e);
+    console.log(e);
     this.mapClick.emit(e)
     this.markers = [e];
   }

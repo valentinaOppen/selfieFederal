@@ -5,6 +5,7 @@ import { HttpService } from './http.service';
   providedIn: 'root'
 })
 export class WsService {
+  SRC = 'http://127.0.0.1:8080/selfieFederal/';
 
   constructor(private http: HttpService) { }
 
@@ -18,5 +19,9 @@ export class WsService {
 
   setSelfie(selfie) {
     return this.http.post('/selfies', selfie);
+  }
+
+  searchSelfies(sitio) {
+    return this.http.get(`/selfies/search/${sitio}`);
   }
 }

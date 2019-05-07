@@ -60,12 +60,20 @@ class SelfieDAO
 	public static function insertarSelfie($selfie)
 	{
 		
-		$query = "INSERT into selfies (lat, lng, id_address, nombre, pais, provincia, ciudad, persona, address, visible, fecha) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())";
+		// var_dump( isset($selfie['address']));
+		if (isset($selfie['address'])) {
+			$id_pais = $selfie['address']['id_address_country'];
+			$id_state = $selfie['address']['id_address_1'];
+			$id_sitio = $selfie['address']['id_address_sitio'];
+			$pais = $selfie['address']['address_country'];
+			$provincia = $selfie['address']['address_state_1'];
+			$ciudad = $selfie['address']['address_state_2'];
+			$sitio = $selfie['address']['sitio'];
+		}
+		$query = "INSERT into selfies (lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, fecha) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())";
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta($query);
-		$rta = $consulta->execute(array($selfie['lat'], $selfie['lng'], '$selfie["id_address"]', 'SinNombre', '$selfie["pais"]', 
-			'$selfie["provincia"]', '$selfie["ciudad"]', json_encode($selfie['persona']), json_encode($selfie['address']), 0
-		));
+		$rta = $consulta->execute(array($selfie['lat'], $selfie['lng'], $sitio, $id_pais, $id_state, $id_sitio, $pais, $provincia, $ciudad, json_encode($selfie['persona']), json_encode($selfie['address'])));
 		
 		return $objetoAccesoDato->RetornarUltimoIdInsertado();
     }
@@ -73,16 +81,25 @@ class SelfieDAO
   	public static function getAllSelfies()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select id, lat, lng, id_address, nombre, pais, provincia, ciudad, persona, address, visible from selfies");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id, lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, visible from selfies");
 			$consulta->execute();			
 			// return $consulta->fetchAll(PDO::FETCH_OBJ);		
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "Selfie");		
 	}
 
+	public static function searchSelfies($sitio)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+		$consulta = $objetoAccesoDato->RetornarConsulta("select id, lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, visible from selfies where sitio LIKE ? ");
+		$consulta->execute(array("%$sitio%"));
+		// $consulta->execute();
+		// return $consulta->fetchAll(PDO::FETCH_OBJ);		
+		return $consulta->fetchAll(PDO::FETCH_CLASS, "Selfie");
+	}
 	public static function getTwoSelfies()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select id, lat, lng, id_address, nombre, pais, provincia, ciudad, persona, address, visible from selfies LIMIT 2");
+			$consulta =$objetoAccesoDato->RetornarConsulta( "select id, lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, visible from selfies LIMIT 2");
 			$consulta->execute();			
 			// return $consulta->fetchAll(PDO::FETCH_OBJ);		
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "Selfie");		

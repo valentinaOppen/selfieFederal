@@ -7,8 +7,10 @@ class Selfie
 	public $id;
 	public $lat;
 	public $lng;
-	public $id_address;
-	public $nombre;
+	public $sitio;
+	public $id_pais;
+	public $id_state;
+	public $id_sitio;
 	public $pais;
 	public $provincia;
 	public $ciudad;

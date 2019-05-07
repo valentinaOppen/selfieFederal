@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Icoords, Imarker, ILatLng } from '../imaps';
 import { WsService } from '../../../services/ws.service'; 
 
@@ -9,6 +9,26 @@ import { WsService } from '../../../services/ws.service';
   styleUrls: ['./map-markers.component.css']
 })
 export class MapMarkersComponent implements OnInit {
+  @Input() 
+  set markersSearch(data) {
+    if (!data) {
+      this.markers = [];
+      
+    } else {
+      if (data[0]) {
+        this.latLng = {
+          lat: data[0].lat,
+          lng: data[0].lng
+        }
+    }
+    
+    this.markers = data;
+    }
+  }
+  get makersSearch() {
+    return this.markers;
+  }
+  
   // title: string = 'Massa Maps';
   // lat: number = 51.678418;
   // lng: number = 7.809007;
@@ -39,4 +59,14 @@ export class MapMarkersComponent implements OnInit {
     });
   }
 
+  _callback(data) {
+  console.log(data);
+  if (data[0]) {
+    this.latLng = {
+      lat: data[0].lat,
+      lng: data[0].lng
+    }
+  }
+  this.markers = data;
+  }
 }

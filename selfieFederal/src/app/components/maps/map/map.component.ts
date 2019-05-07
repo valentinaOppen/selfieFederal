@@ -39,8 +39,8 @@ export class MapComponent implements OnInit {
 	ngOnInit() {}
 
 	async handlerMapClick(e: Icoords) {
-		
 		let r = await this.maps.findAddressByCoordinates(e.coords);
+		console.log(r)
 		this.mapClick.emit(r);
 	}
 }
