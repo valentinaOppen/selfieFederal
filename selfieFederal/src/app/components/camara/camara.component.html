@@ -6,7 +6,9 @@
       [imageQuality]="0.5" [imageType]="image/webp" allowCameraSwitch="true"
       ></webcam>
       <br />
-      <button id="snapshotBtn" (click)="triggerSnapshot();">Take A Snapshot</button>
+      <div class="btnTakeSnapshot">
+        <button id="snapshotBtn" (click)="triggerSnapshot();"></button>
+      </div>
     </div>
   <!-- </div> -->
   <!-- <div *ngIf="webcamImage">

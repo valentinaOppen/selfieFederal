@@ -26,3 +26,217 @@ body
 {
     font-family: chivoReg;
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) 
+{
+    .divRedesSociales
+    {
+        display:none;
+    }
+
+    .divSelfieFederal
+    {
+        font-size:2em !important;
+    }
+    
+    .containerHeader hr
+    {
+        margin-top:0.5em;
+        margin-bottom:0.5em;
+        width: 65% !important;
+        border-top:2px solid white !important;
+    }
+
+    .textHeader
+    {
+        font-size: 1.1em !important;        
+        padding-bottom: 6vw !important;
+    }
+
+    .divBuscador
+    {
+        height: 60px !important;
+    }
+
+    .buscadorMapaHome
+    {
+        width:60vw !important;
+        height:60% !important;
+    }
+
+    .divSearch
+    {
+        width:fit-content !important;
+        height: 60% !important;
+        padding:0.2em 0.6em !important;
+    }
+
+    .divFooterMapa
+    {
+        display:block !important;
+        padding:6vw 0 3vw 0 !important;
+    }
+
+    .divCompartiTuSelfie
+    {
+        font-size:2em !important;
+        width:100% !important;
+        text-align: center !important;
+    }
+
+    .divButtons
+    {
+        margin-bottom:0.5em !important;
+        display: grid !important;
+        grid-template-columns: auto auto; 
+    } 
+
+    .btnMapa
+    {
+        font-size: 0.4em !important;
+        width:80% !important;
+        margin:auto auto !important;
+    }
+
+    .abrirCamara
+    {
+        text-align: left;
+        display: unset !important;
+    }
+
+    .footerImgMap
+    {
+        display:none !important;
+    }
+
+    .divGaleriaFooterMapa
+    {
+        display:none !important;
+    }
+    
+    .divGaleriaFooterMapaMobile
+    {
+        display: unset !important;
+    }
+
+    .imgFooterMapMobile img
+    {
+        width:90%;
+        height: auto;
+    }
+
+    .imgFooterMapMobile
+    {
+        text-align: center;
+    }
+
+    .divBtnMasFotos
+    {
+        position:relative !important;
+        width: fit-content;
+        margin: 2em auto !important;
+        text-align: center !important;
+    }
+
+    .btnMasFotos
+    {
+        font-size:1.1em !important;
+    }
+
+    .spanMas
+    {
+        display:none;
+    }
+
+    .spanMasMobile
+    {
+        display:unset !important;
+        color:white;
+        font-size:1.4em;
+    }
+
+    .divFooter
+    {
+        display:block !important;
+        grid-template-columns: 100% !important;
+    }
+
+    .divSumateWappFooter
+    {
+        display:none !important;
+    }
+
+    .navWappFooter
+    {
+        display:none !important;
+    }
+
+    .selfieFederal
+    {
+        display:none !important;
+    }
+
+    .divRedesFooter
+    {
+        font-size: 4em;
+        width: fit-content;
+        margin: auto;            
+    }
+
+    .divRedesFooter a
+    {
+        margin: 0.5em !important;
+    }
+
+    .galeria
+    {
+        grid-template-columns: 100% !important;
+        width:100% !important;
+        padding:2em 3em !important;
+    }
+
+    .nsm-content
+    {
+        margin:0 !important;
+        height:100vh !important;
+        padding: 0 !important;
+    }
+
+    .nsm-body
+    {
+        height: 100% !important;
+        width:100% !important;
+    }
+
+    .webcam-wrapper
+    {
+        height: 100vh !important;
+    }
+
+    video
+    {
+        object-fit: fill;
+        height: 100%;
+    }
+
+    .btnTakeSnapshot
+    {
+        background-color:#58B3B6;
+        padding:0.8em 1em;
+        position: absolute;
+        bottom:5%;
+        left:45%; 
+        border:solid white 1px;
+        border-radius: 100%;
+    }
+
+    #snapshotBtn
+    {
+             
+        background-color: white;
+        width: 2px;
+        height: 17px;
+        border: solid white;
+        border-radius: 100%;  
+    }
+}

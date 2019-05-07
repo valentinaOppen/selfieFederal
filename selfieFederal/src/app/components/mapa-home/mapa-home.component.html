@@ -44,9 +44,20 @@
             </div>
           </div>  
         </div>
+        <div class="divGaleriaFooterMapaMobile">
+          <div class="imgsFooterMapMobile">
+            <div class="imgFooterMapMobile">
+                <img [src]="getImageSrc(markers[0].persona.img)" height="75px" alt="">                 
+            </div>
+          </div>  
+        </div>
         <div class="divBtnMasFotos">
+            <span class="spanMasMobile">
+                <i class="fas fa-plus-circle"></i>
+              </span>
           <div class="btnMasFotos">
-            <div class="verMas">VER MÁS</div><span class="spanMas">
+            <div class="verMas">VER MÁS</div>
+            <span class="spanMas">
               <i class="fas fa-plus-circle"></i>
             </span>
           </div>
@@ -64,6 +75,7 @@
   (onDismissFinished)="close($event)">
   <upload-selfie [default]="data" (onCargar)="cargado($event)"></upload-selfie>
 </ngx-smart-modal>
+
 <!-- CARGAR FOTO -->
 <ngx-smart-modal
   customClass="msg-modal"
