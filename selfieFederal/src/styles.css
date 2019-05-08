@@ -208,7 +208,7 @@ body
         width:100% !important;
     }
 
-    .webcam-wrapper
+    /* .webcam-wrapper
     {
         height: 100vh !important;
     }
@@ -217,14 +217,14 @@ body
     {
         object-fit: fill;
         height: 100%;
-    }
+    } */
 
     .btnTakeSnapshot
     {
         background-color:#58B3B6;
         padding:0.8em 1em;
         position: absolute;
-        bottom:5%;
+        bottom:10%;
         left:45%; 
         border:solid white 1px;
         border-radius: 100%;
@@ -239,4 +239,58 @@ body
         border: solid white;
         border-radius: 100%;  
     }
+
+    /* .msg-modal img
+    {
+        height: 100vh !important;
+        width:100vw !important;
+    } */
+
+    .divBtnCargar
+    {
+        height: fit-content;
+        vertical-align: middle;
+        text-align: center;
+        margin-top: 20%; 
+    }
+
+    .containerBtn
+    {
+        height: 27vh;
+    }
+
+    .btnCargar
+    {        
+        margin: auto auto;
+        background-color: #58B3B6;
+        color: white;
+        font-family: chivoBold;
+        font-size: 1.2em;
+        padding: 0.2em 0.5em;
+        border: none;
+    }
+
+
+}
+
+.btn-cargar {
+    /* background-color: aqua; */
+    background-color: white;
+    color: #57B3B5;
+    border: none;
+    margin-left: 2em;
+}
+
+.ngx-file-drop__drop-zone
+{
+    width:60%;
+    border-radius: 0 !important;
+    color:white !important;
+    border: 2px dotted white !important;
+    margin: 2em auto !important;
+}
+
+.ngx-file-drop__drop-zone-label
+{
+    color:white !important;
 }

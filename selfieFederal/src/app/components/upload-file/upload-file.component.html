@@ -9,7 +9,11 @@
     <map-click (mapClick)="handleMapClick($event)"></map-click>
   </div>
   <!-- <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese nombre"> -->
-  <button (click)="click()" [disabled]="!selfie">Cargar</button>
+  <div class="containerBtn">
+    <div class="divBtnCargar">
+      <button class="btnCargar" (click)="click()" [disabled]="!selfie">CARGAR</button>
+    </div>
+  </div>
 </div>
 <div *ngIf="cargando">
   <app-spinner></app-spinner>

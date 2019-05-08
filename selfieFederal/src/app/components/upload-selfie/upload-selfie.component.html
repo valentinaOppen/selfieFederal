@@ -11,7 +11,11 @@
     <div>
       <img *ngIf="webcamImage" [src]="webcamImage.imageAsDataUrl"  />
       <!-- <button (click)="otra()">Tomar otra</button> -->
-      <button (click)="clickFoto()" >Cargar</button>
+      <div class="containterBtn">
+        <div class="divBtnCargar">
+          <button class="btnCargar" (click)="clickFoto()" >CARGAR FOTO</button>
+        </div>
+      </div>  
     </div>
   </div>
   <!-- PASO 3 -->

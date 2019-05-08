@@ -203,3 +203,24 @@
     font-size: 2.3vw;
 }
 
+.divCargarFoto
+{
+    width: 75%;
+    background-color: #57B3B5;    
+    margin: auto;
+    border: 2px solid white;
+}
+
+.ngx-file-drop__drop-zone[_ngcontent-cwu-c14]
+{
+    width:60%;
+    border-radius: 0 !important;
+    color:white !important;
+    border: 2px dotted white !important;
+}
+
+.ngx-file-drop__drop-zone-label
+{
+    color:white !important;
+}
+
