@@ -71,6 +71,11 @@ body
         padding:0.2em 0.6em !important;
     }
 
+    .contentFooterMapa
+    {
+        display:block !important;
+    }   
+
     .divFooterMapa
     {
         display:block !important;
@@ -90,6 +95,7 @@ body
         display: grid !important;
         grid-template-columns: auto auto; 
         margin-top: 0.4em !important;
+        font-size: 2em;
     } 
 
     .btnMapa
@@ -110,7 +116,7 @@ body
         display:none !important;
     }
 
-    .divGaleriaFooterMapa
+    /* .divGaleriaFooterMapa
     {
         display:none !important;
     }
@@ -129,7 +135,7 @@ body
     .imgFooterMapMobile
     {
         text-align: center;
-    }
+    } */
 
     .divBtnMasFotos
     {
@@ -160,6 +166,7 @@ body
     {
         display:block !important;
         grid-template-columns: 100% !important;
+        padding: 1em;
     }
 
     .divSumateWappFooter
@@ -295,4 +302,65 @@ body
 .ngx-file-drop__drop-zone-label
 {
     color:white !important;
+}
+
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .btnMapa{
+        padding: 0.2em 0.5em !important;
+    }
+
+}
+
+
+@media only screen and (max-width:950px) 
+{
+    .footerImgMap
+    {
+        font-size:0.8em;
+    }   
+
+    .comparti
+    {
+        height: fit-content;
+        margin: auto 0.4em;
+    }
+    
+    .redesSocialesFooterImg
+    {
+        height: fit-content;
+        margin: auto;
+    }
+
+    .footerImgMap{
+        height:25px;
+    }
+}
+
+@media only screen and (max-width:745px) 
+{
+    .divGaleriaFooterMapa
+    {
+        display:none !important;
+    }
+    
+    .divGaleriaFooterMapaMobile
+    {
+        display: unset !important;
+    }
+
+    .imgFooterMapMobile img
+    {
+        width:95%;
+        height: auto;
+    }
+
+    .imgFooterMapMobile
+    {
+        text-align: center;
+    }
 }

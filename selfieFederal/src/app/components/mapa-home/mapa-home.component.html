@@ -19,16 +19,17 @@
     </div>
     <div class="containerFooterMapa">
       <div class="divFooterMapa" *ngIf="isVisible == true">.>
+        <div class="contentFooterMapa">
         <div class="divCompartiTuSelfie">
           <div class="textCompartiTuSelfie">
             Compartí tu <br><span class="spanSelfieFederal">#SelfieFederal!</span>
-          </div>
-          <div class="divButtons">
+          </div>                   
+        </div>
+        <div class="divButtons">
             <button (click)="openModal()" class="btnMapa abrirCamara">ABRIR CAMARA</button>
             <button (click)="showDivFile()" class="btnMapa cargarFoto">CARGAR FOTO</button>
             <!-- <button (click)="openModalFile()" class="btnMapa cargarFoto">CARGAR FOTO</button> -->
-          </div>          
-        </div>
+          </div> 
         <div class="divGaleriaFooterMapa">
           <div class="imgsFooterMap" *ngFor="let mark of markers">
             <div class="imgFooterMap">
@@ -52,6 +53,7 @@
             </div>
           </div>  
         </div>
+      </div>
         <div class="divBtnMasFotos" routerLink='galeria'>
             <span class="spanMasMobile">
                 <i class="fas fa-plus-circle"></i>
@@ -71,6 +73,7 @@
         </div>
       </div>
   
+    
     </div>
 
     

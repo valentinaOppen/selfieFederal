@@ -73,52 +73,65 @@
 .divFooterMapa
 {    
     width:75%;
-    margin:auto auto;
-    display: flex;
+    margin:auto auto;    
     padding: 6vw 0;
     position:relative;
 }
 
+/* .contentFooterMapa
+{
+    display: flex;    
+    height: fit-content;
+    max-height: 230px;
+} */
+
 .divCompartiTuSelfie
 {
-    width:35%;
-    color:white;
-    font-size:3vw;    
-    height: fit-content;
-    /* margin:auto 0; */
-    margin-top: 1%;
-    max-height: 180px;
+    /* width: 35%; */
+    width:100%;
+    color: white;
+    font-size: 3vw;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: inherit;    
+    position: relative;    
+    margin: auto;
 }
 
 .spanSelfieFederal
 {
     font-family: chivoBold;
 }
-/* 
+
 .divButtons
 {
-    margin-top: 0.5em;
-} */
+    /* margin-top: 0.5em; */
+    display: flex;
+    grid-area:btn;
+}
 
 .btnMapa
 {
-    background-color:#57B3B5;
-    border:solid white 1px;
+    background-color: #57B3B5;
+    border: solid white 1px;
     border-left: 2px solid white;
     border-right: 2px solid white;
-    font-size:1vw;
-    margin: 1vw 1vw 1vw 0;
-    color:white;
+    font-size: 1.2vw;
+    margin: 1.5vw 1vw 0vw 0;
+    color: white;
     font-family: chivoBold;
-    border:1px 2px;    
+    border: 1px 2px;
     padding: 0.2em 1em;
+    height: fit-content;
 }
 
 .divGaleriaFooterMapa
 {
-    width:65%;
+    /* width:65%; */
+    width:100%;
     display:flex;
     height: fit-content;
+    grid-area:galeria;
 }
 
 .divGaleriaFooterMapaMobile
@@ -237,4 +250,18 @@
 .containerCargarFoto
 {
     padding: 3em 0em;
+}
+
+
+
+
+.contentFooterMapa
+{
+    display:grid;
+    grid-template-columns: 35% 65%;
+    grid-template-rows:auto auto auto;
+    grid-template-areas: 
+    "text galeria"
+    "btn galeria"
+    ". btnMas";
 }

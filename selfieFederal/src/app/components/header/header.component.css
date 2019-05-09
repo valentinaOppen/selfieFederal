@@ -14,7 +14,7 @@
 {
     width: 100%;
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 1.5em;
 }
 
 .divRedesSociales a
@@ -27,6 +27,9 @@
     text-align: center;
     font-size: 3vw;
     margin-top:2vw;
+    border-bottom: solid white 2px;
+    width: 40%;
+    margin: 1.5vw auto 1vw;
 }
 
 .spanSelfie
