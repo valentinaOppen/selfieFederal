@@ -11,6 +11,7 @@ import { FileDropModule } from 'ngx-file-drop';
 import { MapsService } from './services/maps.service';
 import { HttpService } from './services/http.service';
 import { WsService } from './services/ws.service';
+import { WindowService } from './services/window.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -64,7 +65,8 @@ import { GaleriaComponent } from './components/galeria/galeria.component';
     GoogleMapsAPIWrapper,
     MapsService,
     HttpService,
-    WsService
+    WsService,
+    WindowService
   ],
   bootstrap: [AppComponent]
 })

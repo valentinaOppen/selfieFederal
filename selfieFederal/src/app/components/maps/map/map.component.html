@@ -3,7 +3,9 @@
 	[zoom]="zoom"
 	[latitude]="_latLng.lat"
 	[longitude]="_latLng.lng"
-	(mapClick)="handlerMapClick($event)">
+	(mapClick)="handlerMapClick($event)"
+	(zoomChange)="zoomChange($event)"
+	>
 	<!-- Muestro y configuro marcadores en el mapa -->
 	<agm-marker *ngFor="let item of markers"
 		[latitude]="item.lat"
@@ -12,8 +14,9 @@
 		openInfoWindow="true"
 		iconUrl="./assets/MapMarker.png">
 		<!-- Seteo la info de la persona al hacer click -->
-		<agm-info-window *ngIf="marcadores">
+		<agm-info-window [isOpen]="abrirMatkers" *ngIf="marcadores">
 			<app-marker-info
+			
 			[markerItem]='item'
 			></app-marker-info>
 		</agm-info-window>
