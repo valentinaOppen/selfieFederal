@@ -23,7 +23,10 @@
     <map-click 
     (mapClick)="handleMapClick($event)"
     ></map-click>
-    <button (click)="click()" [disabled]="!selfie">Cargar</button>
+    <div class="divBtnCargarSelfie">      
+      <button class="btnCargar" (click)="click()" [disabled]="!selfie">GUARDAR</button>
+    </div>
+    
   </div>
     <!-- <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese nombre"> -->
 </div>

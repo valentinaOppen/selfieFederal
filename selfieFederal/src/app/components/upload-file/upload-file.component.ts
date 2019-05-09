@@ -1,3 +1,5 @@
+import { RouterModule, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Imarker } from '../maps/imaps';
 import { WsService } from '../../services/ws.service';
@@ -14,7 +16,7 @@ export class UploadFileComponent implements OnInit {
   cargando = false;
   webcamImage;
   error = false;
-  constructor(private ws: WsService) { }
+  constructor(private ws: WsService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -51,5 +53,6 @@ export class UploadFileComponent implements OnInit {
         // this.onCargar.emit({ cargado: false });
       });
     console.log(this.selfie);
+    this.router.navigate['/galeria'];
   }
 }

@@ -21,6 +21,8 @@ export class MapaHomeComponent implements OnInit {
   SRC = this.ws.SRC; // 'http://127.0.0.1:8080/selfieFederal/';
   // SRC = 'http://127.0.0.1:8080/selfieFederal/';
   mostrarUploadSelfie = true;
+  isVisible: boolean = true;
+
   ngOnInit() 
   {
     this.ws.getSelfies2().subscribe(data => 
@@ -56,6 +58,14 @@ export class MapaHomeComponent implements OnInit {
   openModalFile() {
     // this.upload.mostrar = true;
     this.ngxSmartModalService.getModal('modalFile').open();
+  }
+
+  showDivFile()
+  {
+    this.isVisible = false;
+    // document.getElementById('containerFooterMapa').style('display', 'none');
+    // document.getElementById('divFooterMapa').hidden=true;
+    // document.getElementById('containerCargarFoto').hidden=false;    
   }
 
   cargado(e) {

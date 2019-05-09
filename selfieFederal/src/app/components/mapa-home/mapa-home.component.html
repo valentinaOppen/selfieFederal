@@ -18,14 +18,15 @@
       </div>
     </div>
     <div class="containerFooterMapa">
-      <div class="divFooterMapa">
+      <div class="divFooterMapa" *ngIf="isVisible == true">.>
         <div class="divCompartiTuSelfie">
           <div class="textCompartiTuSelfie">
             Compartí tu <br><span class="spanSelfieFederal">#SelfieFederal!</span>
           </div>
           <div class="divButtons">
             <button (click)="openModal()" class="btnMapa abrirCamara">ABRIR CAMARA</button>
-            <button (click)="openModalFile()" class="btnMapa cargarFoto">CARGAR FOTO</button>
+            <button (click)="showDivFile()" class="btnMapa cargarFoto">CARGAR FOTO</button>
+            <!-- <button (click)="openModalFile()" class="btnMapa cargarFoto">CARGAR FOTO</button> -->
           </div>          
         </div>
         <div class="divGaleriaFooterMapa">
@@ -47,11 +48,11 @@
         <div class="divGaleriaFooterMapaMobile">
           <div class="imgsFooterMapMobile">
             <div class="imgFooterMapMobile">
-                <img *ngIf="markers && markers[0]" [src]="getImageSrc(markers[0].persona.img)" height="75px" alt="">                 
+                <img *ngIf="markers && markers[0]" [src]="getImageSrc(markers[0].persona.img)" alt="">                 
             </div>
           </div>  
         </div>
-        <div class="divBtnMasFotos">
+        <div class="divBtnMasFotos" routerLink='galeria'>
             <span class="spanMasMobile">
                 <i class="fas fa-plus-circle"></i>
               </span>
@@ -64,7 +65,7 @@
         </div>        
       </div>
 
-      <div class="containerCargarFoto">
+      <div class="containerCargarFoto" *ngIf="isVisible == false">
         <div class="divCargarFoto">
           <upload-file (onCargar)="cargadoFile($event)"></upload-file>
         </div>

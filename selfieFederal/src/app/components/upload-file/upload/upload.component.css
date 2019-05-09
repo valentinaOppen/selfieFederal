@@ -5,3 +5,9 @@
     border: none;
     margin-left: 2em;
 }
+
+.divBtnCargar
+{
+    margin: 0em auto 2em;
+    width: fit-content;
+}

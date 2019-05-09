@@ -11,7 +11,8 @@
   <!-- <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese nombre"> -->
   <div class="containerBtn">
     <div class="divBtnCargar">
-      <button class="btnCargar" (click)="click()" [disabled]="!selfie">CARGAR</button>
+      <button class="btnCargar" (click)="click()" *ngIf="selfie" [disabled]="!selfie">CARGAR</button>
+      <!-- <button class="btnCargar" (click)="click()" *ngIf="selfie" [disabled]="!selfie">CARGAR</button> -->
     </div>
   </div>
 </div>

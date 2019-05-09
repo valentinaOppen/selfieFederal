@@ -2,3 +2,20 @@
     object-fit: fill;
     height: 100%;
 }
+
+.divBtnCargarSelfie
+{
+    width: fit-content;
+    margin: 10% auto;
+    padding-bottom: 2em;
+
+}
+/* 
+.btnCargar 
+{    
+    background-color: white;
+    color: #57B3B5;
+    border: none;    
+    margin-top:2em;
+} */
+

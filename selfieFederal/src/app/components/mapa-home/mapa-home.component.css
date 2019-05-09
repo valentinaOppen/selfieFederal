@@ -21,7 +21,7 @@
     display: flex;
     margin: auto auto;
     width: fit-content;
-    height: 90%;
+    height: 100%;
 }
 
 .buscadorMapaHome
@@ -85,18 +85,20 @@
     color:white;
     font-size:3vw;    
     height: fit-content;
-    margin:auto 0;
+    /* margin:auto 0; */
+    margin-top: 1%;
+    max-height: 180px;
 }
 
 .spanSelfieFederal
 {
     font-family: chivoBold;
 }
-
+/* 
 .divButtons
 {
     margin-top: 0.5em;
-}
+} */
 
 .btnMapa
 {
@@ -104,11 +106,12 @@
     border:solid white 1px;
     border-left: 2px solid white;
     border-right: 2px solid white;
-    font-size:1.2vw;
+    font-size:1vw;
     margin: 1vw 1vw 1vw 0;
     color:white;
     font-family: chivoBold;
-    border:1px 2px;
+    border:1px 2px;    
+    padding: 0.2em 1em;
 }
 
 .divGaleriaFooterMapa
@@ -141,7 +144,7 @@
     color: white;
     position: absolute;
     bottom: 0;
-    height: fit-content;
+    height: 30px;
     display: flex;
     width: 100%;
     padding:0.2em;
@@ -159,9 +162,16 @@
     width:100%;
 }
 
-.imgFooterMap img{
+.imgFooterMap img
+{
     width:100%;
-    height: auto;
+    height: auto;    
+}
+
+.imgsFooterMap img
+{
+    max-height: 180px !important;
+    padding-bottom:30px;
 }
 
 .divBtnMasFotos
@@ -224,3 +234,7 @@
     color:white !important;
 }
 
+.containerCargarFoto
+{
+    padding: 3em 0em;
+}

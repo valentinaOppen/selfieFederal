@@ -1,7 +1,14 @@
-.btn-cargar
+.divBtnCargar
 {
+    width: fit-content;
+    margin: auto;
+    padding-bottom: 2em;
+}
+
+.btnCargar 
+{    
     background-color: white;
     color: #57B3B5;
-    border: none;
-    margin-left: 2em;
+    border: none;    
+    margin-top:2em;
 }
