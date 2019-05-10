@@ -3,9 +3,6 @@ define("DB", "selfie");
 define("USER", "root");
 define("PASSWORD", "");
 
-define("DB_PROD", "c1481262_selfie");
-define("USER_PROD", "c1481262_selfie");
-define("PASSWORD_PROD", "kusa33ZIge");
 class AccesoDatos
 {
     private static $ObjetoAccesoDatos;
