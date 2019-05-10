@@ -234,13 +234,18 @@ body
 
     .btnTakeSnapshot
     {
-        background-color:#58B3B6;
-        padding:0.8em 1em;
+        /* background-color:#58B3B6; */
+        background-image: url(./assets/btnPhotoMobile.png);
+        background-size: 100%;
+        background-repeat:no-repeat;
+        /* padding:0.8em 1em; */
         position: absolute;
         bottom:10%;
         left:43%; 
-        border:solid white 1px;
-        border-radius: 100%;
+        height: 20vw;
+        width:20vw;
+        /* border:solid white 1px;
+        border-radius: 100%; */
     }
 
     #snapshotBtn
