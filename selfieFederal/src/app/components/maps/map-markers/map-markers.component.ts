@@ -39,7 +39,7 @@ export class MapMarkersComponent implements OnInit {
   ngOnInit() {
     this.ws.getSelfies()
       .subscribe(data => {
-        console.log(data);
+        // console.log(data);
         if (data[0]) {
           this.latLng = {
             lat: data[0].lat,

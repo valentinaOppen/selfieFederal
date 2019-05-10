@@ -7,6 +7,7 @@ import { Icoords,
 	// Imarker,
 	ILatLng,
 	ILocation as Location } from '../components/maps/imaps';
+import { Observable } from 'rxjs';
 // import { } from '@types/googlemaps';
 @Injectable({
 	providedIn: 'root'
@@ -14,6 +15,7 @@ import { Icoords,
 export class MapsService {
 
 	private geocoder;
+	private autocompleteService;
 	constructor(public mapsApiLoader: MapsAPILoader) {
 		this.mapsApiLoader.load().then(() => {
 			this.geocoder = new google.maps.Geocoder();

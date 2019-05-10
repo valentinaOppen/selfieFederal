@@ -1,5 +1,7 @@
+<app-autocomplete (onSelected)="selected($event)"></app-autocomplete>
 <app-map
 [latLng]="latLng"
+[point]="point"
 [markers]="markers" 
 [zoom]="12"
 (mapClick)="handlerClick($event)"

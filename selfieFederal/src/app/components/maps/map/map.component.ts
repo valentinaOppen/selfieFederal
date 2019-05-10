@@ -14,11 +14,17 @@ export class MapComponent implements OnInit {
 		lat: null, // -34.6156625,
 		lng: null // -58.5033386
 	};
+	_point;
+	@Input()
+	set point(value) {
+		if (value)
+		this.handlerMapClick(value);
+	}
 	@Input() marcadores = true;
 	@Input() zoom = 8;
 	@Input()
 	set latLng(value: ILatLng) {
-		console.log(value)
+		// console.log(value)
 		// Si no existe tomar actual
 		if (value) {
 			this._latLng = value;			
@@ -48,8 +54,8 @@ export class MapComponent implements OnInit {
 	}
 	
 	ngOnInit() {
-		console.log(this._latLng)
-		console.log(this.winRef.coordsExists())
+		// console.log(this._latLng)
+		// console.log(this.winRef.coordsExists())
 
 
 		if (!this._latLng.lat) {
@@ -77,25 +83,26 @@ export class MapComponent implements OnInit {
 			}
 			this.zoom = 5;
 		}
-		console.log(this._latLng)
+		// console.log(this._latLng)
 	}
 
 	async handlerMapClick(e: Icoords) {
+		// console.log(e)
 		let r = await this.maps.findAddressByCoordinates(e.coords);
-		console.log(r)
+		// console.log(r)
 		this.mapClick.emit(r);
 	}
 
 	zoomChange(e) {
-		console.log(e);
+		// console.log(e);
 
-		if ( e > 8) {
-			this.abrirMatkers = true;
-		} else {
-			this.abrirMatkers = false;
-		}
-		this.markers.map(item => {
-			// console.log(item)
-		})
+		// if ( e > 8) {
+		// 	this.abrirMatkers = true;
+		// } else {
+		// 	this.abrirMatkers = false;
+		// }
+		// this.markers.map(item => {
+		// 	// console.log(item)
+		// })
 	}
 }

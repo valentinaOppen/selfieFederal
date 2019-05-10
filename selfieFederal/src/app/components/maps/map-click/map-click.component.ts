@@ -15,13 +15,23 @@ export class MapClickComponent implements OnInit {
     // nombre: '',
     // draggable: true
   };
+  latLng;
+  point: Icoords;
   constructor(private ws: WsService) { }
 
   ngOnInit() {
   }
 
+  selected(e) {
+    // console.log(e)
+    this.latLng = e;
+    this.point = {
+      coords: e
+    }
+    // console.log(this.point);
+  }
   handlerClick(e: Imarker) {
-    console.log(e);
+    // console.log(e);
     this.mapClick.emit(e)
     this.markers = [e];
   }
