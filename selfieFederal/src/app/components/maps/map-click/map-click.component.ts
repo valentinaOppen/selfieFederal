@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { WsService } from '../../../services/ws.service'; 
 import { Icoords, Imarker, IPersona } from '../imaps';
 
@@ -8,6 +8,7 @@ import { Icoords, Imarker, IPersona } from '../imaps';
   styleUrls: ['./map-click.component.css']
 })
 export class MapClickComponent implements OnInit {
+  @Input() autocomplete = false;
   @Output() mapClick = new EventEmitter<any>();
   markers: Imarker[];
   persona = {
@@ -17,6 +18,7 @@ export class MapClickComponent implements OnInit {
   };
   latLng;
   point: Icoords;
+  
   constructor(private ws: WsService) { }
 
   ngOnInit() {

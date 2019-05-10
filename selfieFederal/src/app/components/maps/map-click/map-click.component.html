@@ -1,4 +1,5 @@
-<app-autocomplete (onSelected)="selected($event)"></app-autocomplete>
+<app-autocomplete *ngIf="autocomplete"
+(onSelected)="selected($event)"></app-autocomplete>
 <app-map
 [latLng]="latLng"
 [point]="point"

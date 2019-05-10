@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+date_default_timezone_set("America/Argentina/Buenos_Aires");
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
@@ -12,7 +13,7 @@ require_once './rutas/selfiesApi.php';
 require_once './middlewares/MWparaCORS.php';
 // require_once './clases/MWparaAutentificar.php';
 
-$config['displayErrorDetails'] = true;
+// $config['displayErrorDetails'] = true;
 $config['addContentLengthHeader'] = false;
 
 $app = new \Slim\App(["settings" => $config]);
