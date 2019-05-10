@@ -76,7 +76,8 @@ export class MapaHomeComponent implements OnInit {
     this.mostrarUploadSelfie = false;
   }
   cargadoFile(e) {
-
+    console.log(e)
+    this.isVisible = true;
     this.ngxSmartModalService.getModal('modalFile').close();
   }
   close(e) {

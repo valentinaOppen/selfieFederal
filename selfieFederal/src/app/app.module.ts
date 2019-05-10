@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { WebcamModule } from 'ngx-webcam';
@@ -30,6 +30,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
 import { UploadComponent } from './components/upload-file/upload/upload.component';
 import { GaleriaComponent } from './components/galeria/galeria.component';
+import { AutocompleteComponent } from './components/maps/autocomplete/autocomplete.component';
 
 @NgModule({
   declarations: [
@@ -47,17 +48,20 @@ import { GaleriaComponent } from './components/galeria/galeria.component';
     SpinnerComponent,
     UploadFileComponent,
     UploadComponent,
-    GaleriaComponent
+    GaleriaComponent,
+    AutocompleteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAtgzQpQEVf70TLbg_UAy0L5CcEYNRdw1w'
+      apiKey: 'AIzaSyAtgzQpQEVf70TLbg_UAy0L5CcEYNRdw1w',
+      libraries: ['places']
     }),
     WebcamModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxSmartModalModule.forRoot() ,
     FileDropModule
   ],

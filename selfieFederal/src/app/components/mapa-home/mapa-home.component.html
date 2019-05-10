@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="containerFooterMapa">
-      <div class="divFooterMapa" *ngIf="isVisible == true">.>
+      <div class="divFooterMapa" *ngIf="isVisible == true">
         <div class="contentFooterMapa">
         <div class="divCompartiTuSelfie">
           <div class="textCompartiTuSelfie">
@@ -67,7 +67,7 @@
         </div>        
       </div>
 
-      <div class="containerCargarFoto" *ngIf="isVisible == false">
+      <div class="containerCargarFoto" *ngIf="!isVisible">
         <div class="divCargarFoto">
           <upload-file (onCargar)="cargadoFile($event)"></upload-file>
         </div>
