@@ -29,6 +29,11 @@ body
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) 
 {
+    .cargarFotoMobile
+    {
+        display:unset !important;
+    }
+
     .divRedesSociales
     {
         display:none;
@@ -93,7 +98,7 @@ body
     {
         margin-bottom:0.5em !important;
         display: grid !important;
-        grid-template-columns: auto auto; 
+        grid-template-columns: 50% 50%; 
         margin-top: 0.4em !important;
         font-size: 2em;
     } 
@@ -101,7 +106,7 @@ body
     .btnMapa
     {
         font-size: 0.4em !important;
-        /* width:80% !important; */
+        width:85% !important;
         margin:auto auto !important;
     }
 
@@ -262,14 +267,14 @@ body
         margin-top: 20%; 
     }
 
-    .containerBtn
+    /* .containerBtn
     {
         height: 27vh;
-    }
+    } */
 
     .btnCargar
     {        
-        margin: auto auto;
+        margin: auto auto !important;
         background-color: #58B3B6;
         color: white;
         font-family: chivoBold;
@@ -279,6 +284,17 @@ body
     }
 
 
+    .ngx-file-drop__drop-zone-label
+    {
+        display:none !important;
+    }
+
+    .ngx-file-drop__drop-zone
+    {
+        border:none !important;
+        margin:0 !important;
+        width:100%;
+    }
 }
 
 .btn-cargar {
