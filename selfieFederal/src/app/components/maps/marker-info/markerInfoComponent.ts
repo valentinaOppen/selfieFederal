@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-// import { WsService } from '../../../services/ws.service';
+import { WsService } from '../../../services/ws.service';
 
 @Component({
   selector: 'app-marker-info',
@@ -23,8 +23,8 @@ export class MarkerInfoComponent implements OnInit {
     nombre: 'Jon Doe'
   };
 
-  SRC = 'http://127.0.0.1:8080/selfieFederal/';
-  constructor() {
+  SRC = this.ws.SRC; // 'http://127.0.0.1:8080/selfieFederal/';
+  constructor(private ws: WsService) {
   }
 
   ngOnInit() {
