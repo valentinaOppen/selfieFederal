@@ -1,9 +1,11 @@
 <div *ngIf="!cargando">
   <!-- PASO 1 -->
   <div *ngIf="paso===0">
-    <app-camara *ngIf="verCamara"
-    (imageCapture)="imageCapture($event)"
-    ></app-camara>
+    <div  *ngIf="verCamara">
+      <app-camara
+      (imageCapture)="imageCapture($event)"
+      ></app-camara>
+      </div>
   </div>  
   <!-- PASO 2 -->
   <!-- <div *ngIf="webcamImage"> -->

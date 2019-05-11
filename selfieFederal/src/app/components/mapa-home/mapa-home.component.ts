@@ -3,6 +3,7 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
 import { UploadSelfieComponent } from '../upload-selfie/upload-selfie.component';
 import 'ngx-smart-modal/ngx-smart-modal.css';
 import { WsService } from '../../services/ws.service'; 
+import { WindowService } from '../../services/window.service';
 
 @Component({
   selector: 'app-mapa-home',
@@ -14,7 +15,7 @@ export class MapaHomeComponent implements OnInit {
   data;
   search = '';
   constructor(public ngxSmartModalService: NgxSmartModalService,
-              private ws: WsService) { }
+    private ws: WsService, private win: WindowService) { }
 
   markers: Array<any>; //Imarker[];
   markersSearch: any;
@@ -47,12 +48,34 @@ export class MapaHomeComponent implements OnInit {
       })
     }
   }
-  openModal() {
-    this.mostrarUploadSelfie = true;
-    this.upload.mostrar = true;
-    this.upload.paso = 0;
-    this.upload.verCamara = true;
-    this.ngxSmartModalService.getModal('myModal').open();
+  async openModal() {
+    // console.log(navigator.getUserMedia())
+
+    try {
+      let r = await this.win.getNavigator()['permissions'].query({ name: 'camera' })
+      // console.log(r)
+
+      if (r.state === 'denied') {
+        throw "no camara";
+      };
+      this.mostrarUploadSelfie = true;
+      this.upload.mostrar = true;
+      this.upload.paso = 0;
+      this.upload.verCamara = true;
+      this.ngxSmartModalService.getModal('myModal').open();
+
+    } catch (error) {
+      alert("No otorgo permisos para utilizar su camara.")
+      // console.log(error);
+      // this.win.getNavigator().getMedia({video: true, audio: false},
+      // (data, e) => {
+      //   console.log(data, e)
+      // }, (error, e)=> {
+      //   console.log(error, e)
+      // }
+      // )
+    }
+       
   }
 
   openModalFile() {

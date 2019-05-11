@@ -3,6 +3,14 @@ import { Injectable } from '@angular/core';
 function getWindow(): any {
   return window;
 }
+function _getMedia() {
+  navigator['getMedia'] = (navigator.getUserMedia ||
+    navigator['webkitGetUserMedia'] ||
+    navigator['mozGetUserMedia']);
+}
+function _getNavigator() {
+  return navigator;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -33,5 +41,10 @@ export class WindowService {
   }
   get nativeWindow(): any {
     return this._win;
+  }
+
+  getNavigator() {
+    _getMedia();
+    return _getNavigator();
   }
 }
