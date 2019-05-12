@@ -19,3 +19,16 @@
     margin-top:2em;
 } */
 
+.divAcuerdos
+{
+    width: fit-content;
+    margin: 1em auto;
+    color:white !important;
+}
+
+.divAcuerdos checkbox
+{
+    margin-right: 0.3em;
+    margin-bottom: 3px;
+    vertical-align: middle;
+}

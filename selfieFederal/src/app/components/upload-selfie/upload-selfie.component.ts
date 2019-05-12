@@ -22,6 +22,7 @@ export class UploadSelfieComponent implements OnInit {
   selfie: Imarker;
   nombre;
   paso = 0;
+  button = false;
   verCamara = false;
   constructor(private ws: WsService) { }
 
@@ -41,6 +42,17 @@ export class UploadSelfieComponent implements OnInit {
     console.log(e)
     this.selfie = e;
     // this.selfie.persona = {};
+    if(document.getElementById('acuerdos').checked == true)
+    {            
+      this.button = true;
+    }    
+    else
+    {
+      // console.log("NO ESTA");
+      alert("Debe aceptar los acuerdos y condiciones");      
+      this.button = false;
+      // document.getElementById('alertAcuerdos').show;
+    }
   }
 
   otra() {
@@ -51,7 +63,16 @@ export class UploadSelfieComponent implements OnInit {
   }
 
   clickFoto() {
-    this.paso = 2;
+    // this.paso = 2;
+    if(this.button == true)
+    {
+      this.button = false;
+    }
+    else
+    {
+      this.button = true;
+    }
+    
   }
 
   resolved(captchaResponse: string) {
@@ -60,6 +81,14 @@ export class UploadSelfieComponent implements OnInit {
 
   click() {
     // this.cargando = true;
+    if(this.button == true)
+    {
+      this.button = false;
+    }
+    else
+    {
+      this.button = true;
+    }
     this.paso = 3;
     return;
     this.selfie.persona = {

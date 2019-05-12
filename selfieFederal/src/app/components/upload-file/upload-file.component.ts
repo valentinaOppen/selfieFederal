@@ -29,12 +29,10 @@ export class UploadFileComponent implements OnInit {
   }
 
   handleMapClick(e) {
-    console.log(e)
-    console.log("ACUERDOS"+document.getElementById('acuerdos').checked);
+    console.log(e)    
+    this.selfie = e;
     if(document.getElementById('acuerdos').checked == true)
-    {
-      console.log("IF");
-      this.selfie = e;
+    {            
       this.button = true;
     }    
     else
@@ -53,9 +51,7 @@ export class UploadFileComponent implements OnInit {
 
   click() {
     // this.cargando = true;
-    this.captcha = true;
-
-console.log("click");
+    // this.captcha = true;
 
     if(this.button == true)
     {

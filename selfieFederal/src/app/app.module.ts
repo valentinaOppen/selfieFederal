@@ -32,6 +32,7 @@ import { UploadFileComponent } from './components/upload-file/upload-file.compon
 import { UploadComponent } from './components/upload-file/upload/upload.component';
 import { GaleriaComponent } from './components/galeria/galeria.component';
 import { AutocompleteComponent } from './components/maps/autocomplete/autocomplete.component';
+import { AcuerdosLegalesComponent } from './components/acuerdos-legales/acuerdos-legales.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AutocompleteComponent } from './components/maps/autocomplete/autocomple
     UploadFileComponent,
     UploadComponent,
     GaleriaComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    AcuerdosLegalesComponent
   ],
   imports: [
     BrowserModule,
