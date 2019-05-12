@@ -36,5 +36,6 @@ export interface ILocation {
 
 export interface IPersona {
     img: string,
-    nombre?: string
+    nombre?: string,
+    txt?: string
 }

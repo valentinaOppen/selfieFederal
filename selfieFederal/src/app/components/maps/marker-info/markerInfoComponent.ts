@@ -7,7 +7,7 @@ import { WsService } from '../../../services/ws.service';
   styleUrls: ['./marker-info.component.css']
 })
 export class MarkerInfoComponent implements OnInit {
-  private _markerItem;
+  public _markerItem;
   @Input() 
   set markerItem(value) {
     
@@ -18,13 +18,13 @@ export class MarkerInfoComponent implements OnInit {
   get markerItem() {
     return this._markerItem;
   }
-  private _personaDefault = {
+  public _personaDefault = {
     img: './images/img_avatar3.png',
     nombre: 'Jon Doe'
   };
 
   SRC = this.ws.SRC; // 'http://127.0.0.1:8080/selfieFederal/';
-  constructor(private ws: WsService) {
+  constructor(public ws: WsService) {
   }
 
   ngOnInit() {

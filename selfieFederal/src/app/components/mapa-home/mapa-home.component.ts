@@ -4,6 +4,7 @@ import { UploadSelfieComponent } from '../upload-selfie/upload-selfie.component'
 import 'ngx-smart-modal/ngx-smart-modal.css';
 import { WsService } from '../../services/ws.service'; 
 import { WindowService } from '../../services/window.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-mapa-home',
@@ -15,7 +16,7 @@ export class MapaHomeComponent implements OnInit {
   data;
   search = '';
   constructor(public ngxSmartModalService: NgxSmartModalService,
-    private ws: WsService, private win: WindowService) { }
+    private ws: WsService, private win: WindowService, private router: Router) { }
 
   markers: Array<any>; //Imarker[];
   markersSearch: any;
@@ -23,7 +24,6 @@ export class MapaHomeComponent implements OnInit {
   // SRC = 'http://127.0.0.1:8080/selfieFederal/';
   mostrarUploadSelfie = true;
   isVisible: boolean = true;
-
   ngOnInit() 
   {
     this.ws.getSelfies2().subscribe(data => 
@@ -110,7 +110,7 @@ export class MapaHomeComponent implements OnInit {
     this.mostrarUploadSelfie = false;
   }
   cargadoFile(e) {
-    console.log(e)
+    // console.log(e)
     this.isVisible = true;
     this.ngxSmartModalService.getModal('modalFile').close();
   }
@@ -122,6 +122,10 @@ export class MapaHomeComponent implements OnInit {
 
     // console.log(this.upload)
     this.data = Date();
+  }
+
+  navigateTo(ruta) {
+    this.router.navigateByUrl("galeria");
   }
 
   getImageSrc(image) {    

@@ -21,9 +21,10 @@ export class UploadSelfieComponent implements OnInit {
   webcamImage: WebcamImage;
   selfie: Imarker;
   nombre;
-  paso = 0;
+  paso = 2;
   button = false;
   verCamara = false;
+  txt = '';
   constructor(private ws: WsService) { }
 
   ngOnInit() {
@@ -42,7 +43,7 @@ export class UploadSelfieComponent implements OnInit {
     console.log(e)
     this.selfie = e;
     // this.selfie.persona = {};
-    if(document.getElementById('acuerdos').checked == true)
+    if(document.getElementById('acuerdos')['checked'] == true)
     {            
       this.button = true;
     }    
@@ -89,28 +90,35 @@ export class UploadSelfieComponent implements OnInit {
     {
       this.button = true;
     }
-    this.paso = 3;
-    return;
+    // this.paso = 3;
+    // return;
     this.selfie.persona = {
       nombre: "sin nombre",
-      img: this.webcamImage.imageAsBase64
+      img: this.webcamImage.imageAsBase64,
+      txt: this.txt || ''
     }
 
     // this.onCargar.emit({ cargado: true });
     // this.selfie.address = 
     this.ws.setSelfie(this.selfie)
     .subscribe(data => {
-      console.log(data)
+      // console.log(data)
       this.cargando = false;
       this.onCargar.emit({ cargado: true });
       this.paso = 0;
     }, e => {
-      console.log(e)
+      // console.log(e)
         this.cargando = false;
         this.error = true;
         this.paso = 0;
         // this.onCargar.emit({ cargado: false });
     });
-    console.log(this.selfie);
+    // console.log(this.selfie);
+  }
+  clickLink(e) {
+
+    e.preventDefault();
+    window.open('/acuerdosLegales');
+    // routerLink = 'acuerdosLegales'
   }
 }

@@ -6,7 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 	providedIn: 'root'
 })
 export class HttpService {
-	URL = 'https://selfiefederal.com/api/';// "http://127.0.0.1:8080/selfieFederal";
+	URL = 'https://selfiefederal.com/api/';// 
+	// URL = "http://127.0.0.1:8080/selfieFederal";
 	httpOptions = {
 		headers: new HttpHeaders({
 			'Access-Control-Allow-Origin': '*',

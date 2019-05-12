@@ -18,20 +18,21 @@ export class UploadFileComponent implements OnInit {
   error = false;
   captcha = false;
   button = false;
+  txt = '';
   constructor(private ws: WsService, private router:Router) { }
 
   ngOnInit() {
   }
 
   _onCargar(e) {
-    console.log(e)
+    // console.log(e)
     this.webcamImage = e;
   }
 
   handleMapClick(e) {
-    console.log(e)    
+    // console.log(e)    
     this.selfie = e;
-    if(document.getElementById('acuerdos').checked == true)
+    if(document.getElementById('acuerdos')['checked'] == true)
     {            
       this.button = true;
     }    
@@ -61,28 +62,36 @@ export class UploadFileComponent implements OnInit {
     {
       this.button = true;
     }
-
-    return;
+    if (!this.webcamImage) return;
+    // return;
     this.button = true;
     this.selfie.persona = {
       nombre: "sin nombre",
-      img: this.webcamImage.imageAsBase64
+      img: this.webcamImage.imageAsBase64,
+      txt: this.txt || ''
     }
 
     // this.onCargar.emit({ cargado: true });
     // this.selfie.address = 
     this.ws.setSelfie(this.selfie)
       .subscribe(data => {
-        console.log(data)
+        // console.log(data)
         this.cargando = false;
         this.onCargar.emit({ cargado: true });
       }, e => {
-        console.log(e)
+        // console.log(e)
         this.cargando = false;
         this.error = true;
         // this.onCargar.emit({ cargado: false });
       });
-    console.log(this.selfie);
-    this.router.navigate['/galeria'];
+    // console.log(this.selfie);
+    // this.router.navigate['/galeria'];
+  }
+
+  clickLink(e) {
+    
+    e.preventDefault();
+    window.open('/acuerdosLegales');
+    // routerLink = 'acuerdosLegales'
   }
 }

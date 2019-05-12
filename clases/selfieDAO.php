@@ -69,11 +69,12 @@ class SelfieDAO
 			$provincia = $selfie['address']['address_state_1'];
 			$ciudad = $selfie['address']['address_state_2'];
 			$sitio = $selfie['address']['sitio'];
+			$txt = $selfie['persona']['txt'];
 		}
-		$query = "INSERT into selfies (lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, fecha) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+		$query = "INSERT into selfies (lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, fecha, txt) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)";
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta($query);
-		$rta = $consulta->execute(array($selfie['lat'], $selfie['lng'], $sitio, $id_pais, $id_state, $id_sitio, $pais, $provincia, $ciudad, json_encode($selfie['persona']), json_encode($selfie['address'])));
+		$rta = $consulta->execute(array($selfie['lat'], $selfie['lng'], $sitio, $id_pais, $id_state, $id_sitio, $pais, $provincia, $ciudad, json_encode($selfie['persona']), json_encode($selfie['address']), $txt));
 		
 		return $objetoAccesoDato->RetornarUltimoIdInsertado();
     }

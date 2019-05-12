@@ -3,7 +3,7 @@
     <div >
       <webcam 
       [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
-      [imageQuality]="0.5" [imageType]="image/webp" allowCameraSwitch="true"
+      [imageQuality]="0.5" [imageType]="'image/webp'" allowCameraSwitch="true"
       ></webcam>
       <br />
       <div class="divBtnTakePhoto">

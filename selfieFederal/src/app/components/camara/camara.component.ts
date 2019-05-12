@@ -9,8 +9,8 @@ import { Subject, Observable } from 'rxjs';
 })
 export class CamaraComponent implements OnInit {
 
-  @Output() imageCapture = new EventEmitter < WebcamImage>();
-  private trigger: Subject<void> = new Subject<void>();
+  @Output() imagecapture = new EventEmitter < WebcamImage>();
+  public trigger: Subject<void> = new Subject<void>();
   public webcamImage: WebcamImage = null;
   
   width= '1000px';
@@ -30,7 +30,7 @@ export class CamaraComponent implements OnInit {
   public handleImage(webcamImage: WebcamImage): void {
     // console.log('received webcam image', webcamImage);
     this.webcamImage = webcamImage;
-    this.imageCapture.emit(webcamImage);
+    this.imagecapture.emit(webcamImage);
   }
 
   public get triggerObservable(): Observable<void> {

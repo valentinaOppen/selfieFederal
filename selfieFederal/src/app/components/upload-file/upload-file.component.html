@@ -13,12 +13,13 @@
       <!-- <button class="btnCargar" (click)="click()" *ngIf="selfie" [disabled]="!selfie">CARGAR</button> -->
       <button class="btnCargar" (click)="click()" *ngIf="button" [disabled]="!selfie">CARGAR</button>
       <!-- <button class="btnCargar" (click)="click()" *ngIf="selfie" [disabled]="!selfie">CARGAR</button> -->      
-      <div *ngIf="captcha">
+      <!-- <div *ngIf="captcha">
         <re-captcha (resolved)="resolved($event)" siteKey="6Lei_qIUAAAAAFuzni2E4MPvoEScK_NtrsoC_nvy"></re-captcha>
-      </div>      
+      </div>       -->
     </div>
     <div class="divAcuerdos">
-      <input type="checkbox" name="acuerdos" id="acuerdos" (click)=click() unchecked><a target="_blank" routerLink='acuerdosLegales'>Acepto acuerdos y condiciones legales</a>
+      <input type="checkbox" name="acuerdos" id="acuerdos" (click)=click() unchecked><a href="#" (click)="clickLink($event)" >Acepto acuerdos y condiciones legales</a>
+      <!-- <input type="checkbox" name="acuerdos" id="acuerdos" (click)=click() unchecked><a target="_blank" (onClick)="clickLink($event)" routerLink='acuerdosLegales'>Acepto acuerdos y condiciones legales</a> -->
     </div>
   </div>
 </div>

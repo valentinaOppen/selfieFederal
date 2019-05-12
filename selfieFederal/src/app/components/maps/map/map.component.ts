@@ -10,11 +10,13 @@ import { WindowService } from '../../../services/window.service';
 	styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-	private _latLng = {
+	public _latLng = {
 		lat: null, // -34.6156625,
 		lng: null // -58.5033386
 	};
 	_point;
+	@Input() WebKitPoint;
+	@Input() Image;
 	@Input()
 	set point(value) {
 		if (value)
