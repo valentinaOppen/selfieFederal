@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { RecaptchaModule } from 'ng-recaptcha';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { WebcamModule } from 'ngx-webcam';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
@@ -63,7 +64,8 @@ import { AutocompleteComponent } from './components/maps/autocomplete/autocomple
     FormsModule,
     ReactiveFormsModule,
     NgxSmartModalModule.forRoot() ,
-    FileDropModule
+    FileDropModule,
+    RecaptchaModule
   ],
   providers: [
     GoogleMapsAPIWrapper,

@@ -19,7 +19,7 @@ $config['addContentLengthHeader'] = false;
 $app = new \Slim\App(["settings" => $config]);
 
 /*LLAMADA A METODOS DE INSTANCIA DE UNA CLASE*/
-// $app->group('/cd', function () {
+// $app->group('/cd', function () {6Lei_qIUAAAAAOZUS1G89jTO6k3qHD230zd5n1Wh
  
 //   $this->get('/', \cdApi::class . ':traerTodos')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
 	

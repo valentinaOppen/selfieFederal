@@ -1,9 +1,11 @@
 <div *ngIf="!cargando">
   <!-- PASO 1 -->
   <div *ngIf="paso===0">
-    <app-camara *ngIf="verCamara"
-    (imageCapture)="imageCapture($event)"
-    ></app-camara>
+    <div  >
+      <app-camara
+      (imageCapture)="imageCapture($event)"
+      ></app-camara>
+      </div>
   </div>  
   <!-- PASO 2 -->
   <!-- <div *ngIf="webcamImage"> -->
@@ -18,16 +20,22 @@
       </div>  
     </div>
   </div>
-  <!-- PASO 3 -->
+  <!-- PASO 2 -->
   <div *ngIf="paso===2">
     <map-click 
     (mapClick)="handleMapClick($event)"
     ></map-click>
-    <div class="divBtnCargarSelfie">      
+    <div class="divBtnCargarSelfie">
       <button class="btnCargar" (click)="click()" [disabled]="!selfie">GUARDAR</button>
     </div>
-    
+
   </div>
+      <!-- PASO 3 -->
+      <div *ngIf="paso==3">
+        
+        <re-captcha (resolved)="resolved($event)" siteKey="6Lei_qIUAAAAAFuzni2E4MPvoEScK_NtrsoC_nvy"></re-captcha>
+        
+      </div>
     <!-- <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese nombre"> -->
 </div>
 

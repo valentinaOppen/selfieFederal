@@ -10,7 +10,7 @@ export class GaleriaComponent implements OnInit
 {
 
   markers: Array<any>; //Imarker[];
-  SRC = 'http://127.0.0.1:8080/selfieFederal/';
+  SRC = this.ws.SRC; // 'http://127.0.0.1:8080/selfieFederal/';
 
   constructor(private ws: WsService) { }
 

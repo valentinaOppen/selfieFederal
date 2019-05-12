@@ -1,6 +1,5 @@
 <div *ngIf="!cargando">
-  <app-upload (onCargar)="_onCargar($event)"></app-upload>
-  
+  <app-upload (onCargar)="_onCargar($event)"></app-upload>  
   <div *ngIf="webcamImage">
     <div>
       <!-- <img [src]="webcamImage.imageAsDataUrl" width="200px" /> -->
@@ -13,6 +12,12 @@
     <div class="divBtnCargar">
       <button class="btnCargar" (click)="click()" *ngIf="selfie" [disabled]="!selfie">CARGAR</button>
       <!-- <button class="btnCargar" (click)="click()" *ngIf="selfie" [disabled]="!selfie">CARGAR</button> -->
+    
+      <div *ngIf="captcha">
+        <re-captcha (resolved)="resolved($event)" siteKey="6Lei_qIUAAAAAFuzni2E4MPvoEScK_NtrsoC_nvy"></re-captcha>
+
+      </div>
+    
     </div>
   </div>
 </div>
