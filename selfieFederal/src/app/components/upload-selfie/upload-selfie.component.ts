@@ -53,8 +53,15 @@ export class UploadSelfieComponent implements OnInit {
   clickFoto() {
     this.paso = 2;
   }
+
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response ${captchaResponse}:`);
+  }
+
   click() {
     // this.cargando = true;
+    this.paso = 3;
+    return;
     this.selfie.persona = {
       nombre: "sin nombre",
       img: this.webcamImage.imageAsBase64

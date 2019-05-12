@@ -67,6 +67,14 @@ export class MapaHomeComponent implements OnInit {
     } catch (error) {
       alert("No otorgo permisos para utilizar su camara.")
       // console.log(error);
+      this.win.getNavigator().mediaDevices.getUserMedia({ audio: true })
+      .then(data => {
+        // console.log(data)
+      })
+      .catch(e => {
+        // console.log(e)
+      }
+      );
       // this.win.getNavigator().getMedia({video: true, audio: false},
       // (data, e) => {
       //   console.log(data, e)

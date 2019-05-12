@@ -16,6 +16,7 @@ export class UploadFileComponent implements OnInit {
   cargando = false;
   webcamImage;
   error = false;
+  captcha = false;
   constructor(private ws: WsService, private router:Router) { }
 
   ngOnInit() {
@@ -31,9 +32,14 @@ export class UploadFileComponent implements OnInit {
     this.selfie = e;
     // this.selfie.persona = {};
   }
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response ${captchaResponse}:`);
+  }
 
   click() {
     // this.cargando = true;
+    this.captcha = true;
+    return;
     this.selfie.persona = {
       nombre: "sin nombre",
       img: this.webcamImage.imageAsBase64
