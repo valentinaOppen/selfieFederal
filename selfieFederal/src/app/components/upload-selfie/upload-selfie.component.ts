@@ -13,7 +13,7 @@ export class UploadSelfieComponent implements OnInit {
   @Input('default')
   set default(value: any) {
     
-    this.webcamImage = undefined;
+    this.webcamImage = null;
   }
   cargando = false;
   mostrar = false;;

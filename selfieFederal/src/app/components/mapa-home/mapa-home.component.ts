@@ -70,9 +70,11 @@ export class MapaHomeComponent implements OnInit {
       this.win.getNavigator().mediaDevices.getUserMedia({ audio: true })
       .then(data => {
         // console.log(data)
+        ;
       })
       .catch(e => {
         // console.log(e)
+        ;
       }
       );
       // this.win.getNavigator().getMedia({video: true, audio: false},
@@ -88,6 +90,7 @@ export class MapaHomeComponent implements OnInit {
 
   openModalFile() {
     // this.upload.mostrar = true;
+    this.upload.paso = 0;
     this.ngxSmartModalService.getModal('modalFile').open();
   }
 
@@ -114,6 +117,8 @@ export class MapaHomeComponent implements OnInit {
   close(e) {
     this.upload.mostrar = false;
     this.upload.error = false;
+    this.upload.paso = 2;
+    // this.upload.paso = 0;
 
     // console.log(this.upload)
     this.data = Date();

@@ -1,7 +1,7 @@
 <div *ngIf="!cargando">
   <!-- PASO 1 -->
   <div *ngIf="paso===0">
-    <div  *ngIf="verCamara">
+    <div  >
       <app-camara
       (imageCapture)="imageCapture($event)"
       ></app-camara>
