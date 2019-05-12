@@ -17,6 +17,7 @@ export class UploadFileComponent implements OnInit {
   webcamImage;
   error = false;
   captcha = false;
+  button = false;
   constructor(private ws: WsService, private router:Router) { }
 
   ngOnInit() {
@@ -29,7 +30,21 @@ export class UploadFileComponent implements OnInit {
 
   handleMapClick(e) {
     console.log(e)
-    this.selfie = e;
+    console.log("ACUERDOS"+document.getElementById('acuerdos').checked);
+    if(document.getElementById('acuerdos').checked == true)
+    {
+      console.log("IF");
+      this.selfie = e;
+      this.button = true;
+    }    
+    else
+    {
+      // console.log("NO ESTA");
+      alert("Debe aceptar los acuerdos y condiciones");      
+      this.button = false;
+      // document.getElementById('alertAcuerdos').show;
+    }
+    
     // this.selfie.persona = {};
   }
   resolved(captchaResponse: string) {
@@ -39,7 +54,20 @@ export class UploadFileComponent implements OnInit {
   click() {
     // this.cargando = true;
     this.captcha = true;
+
+console.log("click");
+
+    if(this.button == true)
+    {
+      this.button = false;
+    }
+    else
+    {
+      this.button = true;
+    }
+
     return;
+    this.button = true;
     this.selfie.persona = {
       nombre: "sin nombre",
       img: this.webcamImage.imageAsBase64
