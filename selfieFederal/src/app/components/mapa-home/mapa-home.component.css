@@ -63,6 +63,7 @@
 {
     height: fit-content;
     width: 100%;    
+    position:relative;
 }
 
 .containerFooterMapa
@@ -252,9 +253,6 @@
     padding: 3em 0em;
 }
 
-
-
-
 .contentFooterMapa
 {
     display:grid;
@@ -264,4 +262,12 @@
     "text galeria"
     "btn galeria"
     ". btnMas";
+}
+
+.divMapaCover
+{
+    height: 100%;
+    position: absolute;    
+    width: 100%;
+    z-index: 10;
 }

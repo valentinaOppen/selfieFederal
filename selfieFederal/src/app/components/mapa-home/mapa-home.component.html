@@ -6,7 +6,8 @@
       </div>    
     </div>
     <div class="divMapa">
-      <div class="mapouter">
+      <div class="divMapaCover" *ngIf="coverMap == true" (click)="hideCover()"></div>
+      <div class="mapouter" (blur)="showCover()">
       <div class="gmap_canvas">
         <map-markers [markersSearch]="markersSearch"></map-markers>
         <!-- <map-click></map-click> -->
@@ -16,7 +17,7 @@
           <style>.mapouter{position:relative;text-align:right;height:inherit;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:inherit;width:100%;}
           </style>
       </div>
-    </div>
+    </div>    
     <div class="containerFooterMapa">
       <div class="divFooterMapa" *ngIf="isVisible == true">
         <div class="contentFooterMapa">

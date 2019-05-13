@@ -24,6 +24,8 @@ export class MapaHomeComponent implements OnInit {
   // SRC = 'http://127.0.0.1:8080/selfieFederal/';
   mostrarUploadSelfie = true;
   isVisible: boolean = true;
+  coverMap:boolean = true;
+
   ngOnInit() 
   {
     this.ws.getSelfies2().subscribe(data => 
@@ -33,6 +35,16 @@ export class MapaHomeComponent implements OnInit {
         this.upload.mostrar = false;
       });
 
+  }
+
+  hideCover()
+  {
+    this.coverMap = false;
+  }
+
+  showCover()
+  {
+    this.coverMap = true;
   }
 
   buscar() {
