@@ -300,6 +300,12 @@ body
         margin:0 !important;
         width:100%;
     }
+
+    .divBack
+    {
+        padding-right: 3em;
+        margin-right: 5%;
+    }
 }
 
 .btn-cargar {

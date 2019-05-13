@@ -63,3 +63,23 @@
 {
     vertical-align: middle;
 }
+
+.back
+{
+    display: flex;
+    color: white;
+    width: fit-content;    
+    margin-left: 75%;
+    padding-bottom: 2em;
+}
+
+.divArrow
+{
+    width: 20px;
+    margin-right: 0.5em;
+}
+
+.divArrow img
+{
+    width: 20px;
+}
