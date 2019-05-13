@@ -25,5 +25,11 @@ export class GaleriaComponent implements OnInit
   getImageSrc(image) {    
     return `${this.SRC}${image}`;
   }
+
+  backClicked()
+  {
+    this.location.back();
+  }
+
   
 }
