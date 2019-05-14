@@ -12,4 +12,7 @@ export class AcuerdosLegalesComponent implements OnInit {
   ngOnInit() {
   }
 
+  clickLink() {
+    
+  }
 }
