@@ -42,6 +42,7 @@ body
     .divSelfieFederal
     {
         font-size:2em !important;
+        width: 70% !important;
     }
     
     .containerHeader hr
@@ -403,6 +404,7 @@ body
     {
         width:95%;
         height: auto;
+        margin:3% !important;
     }
 
     .imgFooterMapMobile

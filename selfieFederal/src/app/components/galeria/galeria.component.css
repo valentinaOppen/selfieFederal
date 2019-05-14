@@ -7,8 +7,9 @@
 {        
     margin: auto auto;
     padding: 3em;
-    display: inline-block;    
-    column-width: 18em;
+    display: inline-block;   
+    width:98vw; 
+    /* column-width: 18em; */
     /* display: grid;
     grid-template-columns: 33% 33% 33%; */
     /* width: 75%;
@@ -18,14 +19,19 @@
 
 .imgsFooterMap
 {
-    width: 90%;
-    margin: 5%;
+    /* width: 90%;
+    margin: 5%; */
+    width: fit-content;
+    display: inline-block;
+    margin: 1%;
 }
 
 .imgsFooterMap img
 {
-    width:100%;
-    height: auto;
+    width: auto;
+    height: 250px;
+    /* width:100%;
+    height: auto; */
     /* max-height: 150px !important; */
 }
 

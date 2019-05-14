@@ -26,9 +26,20 @@
     color:white !important;
 }
 
+.divAcuerdos a
+{
+    color:#58B3B6;
+}
+
 .divAcuerdos checkbox
 {
     margin-right: 0.3em;
     margin-bottom: 3px;
+    vertical-align: middle;
+}
+
+#acuerdos
+{
+    margin:0 0.3em 3px 0;
     vertical-align: middle;
 }
