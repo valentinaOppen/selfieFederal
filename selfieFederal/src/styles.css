@@ -42,6 +42,7 @@ body
     .divSelfieFederal
     {
         font-size:2em !important;
+        width: 70% !important;
     }
     
     .containerHeader hr
