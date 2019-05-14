@@ -5,7 +5,7 @@ import { HttpService } from './http.service';
   providedIn: 'root'
 })
 export class WsService {
-  SRC = 'https://selfiefederal.com/api/';// 
+  SRC = this.http.URL; // 'https://selfiefederal.com/api/';// 
   // SRC = 'http://127.0.0.1:8080/selfieFederal/';
 
   constructor(private http: HttpService) { }

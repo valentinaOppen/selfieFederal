@@ -82,7 +82,7 @@ class SelfieDAO
   	public static function getAllSelfies()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select id, lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, visible from selfies");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id, lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, visible from selfies order by fecha DESC");
 			$consulta->execute();			
 			// return $consulta->fetchAll(PDO::FETCH_OBJ);		
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "Selfie");		
@@ -119,4 +119,28 @@ class SelfieDAO
 			
 	}
 
+	/**
+	 * 
+	 */
+	public static function getAllByVisible($visible)
+	{
+			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id, lat, lng, sitio, id_pais, id_state, id_sitio, pais, provincia, ciudad, persona, address, visible from selfies where visible = ? order by fecha DESC");
+			$consulta->execute(array($visible));			
+			// return $consulta->fetchAll(PDO::FETCH_OBJ);		
+			return $consulta->fetchAll(PDO::FETCH_CLASS, "Selfie");		
+	}
+
+	/**
+	 * 
+	 */
+	public static function login($user, $clave)
+	{
+			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+			$consulta =$objetoAccesoDato->RetornarConsulta("select * from users where user = ? and clave = ?");
+			$consulta->execute(array($user, $clave));			
+			
+			return $consulta->fetchAll(PDO::FETCH_OBJ);
+			// return $consulta->fetchAll(PDO::FETCH_CLASS, "Selfie");		
+	}
 }
