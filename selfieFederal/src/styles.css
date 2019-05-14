@@ -279,13 +279,14 @@ body
 
     .btnCargar
     {        
-        margin: auto auto !important;
+        /* margin: auto auto !important; */
+        margin-top:1em !important;
         background-color: #58B3B6;
         color: white;
         font-family: chivoBold;
         font-size: 1.2em;
         padding: 0.2em 0.5em;
-        border: none;
+        border: none;        
     }
 
 
@@ -306,7 +307,25 @@ body
         padding-right: 3em;
         margin-right: 5%;
     }
+
+    .btn-cargar
+    {
+        margin-left:unset !important;
+    }
+
+    .containerBtn
+    {
+        padding-top:2em;
+    }
+
+    .agm-map-container-inner
+    {
+        height: 200px;
+    }
 }
+
+
+
 
 .btn-cargar {
     /* background-color: aqua; */

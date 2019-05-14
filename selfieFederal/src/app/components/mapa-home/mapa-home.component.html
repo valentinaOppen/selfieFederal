@@ -48,9 +48,10 @@
           </div>  
         </div>
         <div class="divGaleriaFooterMapaMobile">
-          <div class="imgsFooterMapMobile">
+          <div class="imgsFooterMapMobile" *ngFor="let mark of markers">
             <div class="imgFooterMapMobile">
                 <img *ngIf="markers && markers[0]" [src]="getImageSrc(markers[0].persona.img)" alt="">                 
+                <!-- <img *ngIf="markers && markers[0]" [src]="getImageSrc(markers[0].persona.img)" alt="">                  -->
             </div>
           </div>  
         </div>

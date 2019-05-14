@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WsService } from '../../services/ws.service'; 
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-galeria',
@@ -12,7 +13,7 @@ export class GaleriaComponent implements OnInit
   markers: Array<any>; //Imarker[];
   SRC = this.ws.SRC; // 'http://127.0.0.1:8080/selfieFederal/';
 
-  constructor(private ws: WsService) { }
+  constructor(private ws: WsService, private location:Location) { }
 
   ngOnInit() 
   {

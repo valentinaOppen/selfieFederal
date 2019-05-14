@@ -4,12 +4,16 @@
 }
 
 .galeria
-{
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    width: 75%;
+{        
     margin: auto auto;
     padding: 3em;
+    display: inline-block;    
+    column-width: 18em;
+    /* display: grid;
+    grid-template-columns: 33% 33% 33%; */
+    /* width: 75%;
+    margin: auto auto;
+    padding: 3em; */
 }
 
 .imgsFooterMap
@@ -22,7 +26,7 @@
 {
     width:100%;
     height: auto;
-    max-height: 150px !important;
+    /* max-height: 150px !important; */
 }
 
 .divBuscador
@@ -71,6 +75,11 @@
     width: fit-content;    
     margin-left: 75%;
     padding-bottom: 2em;
+}
+
+.back:hover
+{
+    cursor:pointer;
 }
 
 .divArrow
