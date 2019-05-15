@@ -107,4 +107,9 @@ export class MapComponent implements OnInit {
 		// 	// console.log(item)
 		// })
 	}
+
+
+	markerClick(e) {
+		console.log(e);
+	}
 }

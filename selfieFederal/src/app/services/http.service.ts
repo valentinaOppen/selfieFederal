@@ -7,10 +7,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class HttpService {
 	URL = 'https://selfiefederal.com/api/';
-	// URL = "http://127.0.0.1:8080/selfieFederal";
+	// URL = 'http://127.0.0.1:8080/selfieFederal';
 	httpOptions = {
 		headers: new HttpHeaders({
-			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Origin': '*'
 			// 'Authorization': 'authkey',
 			// 'userid': '1'
 		})

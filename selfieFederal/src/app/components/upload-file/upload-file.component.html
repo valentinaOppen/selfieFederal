@@ -18,12 +18,12 @@
       </div>       -->
     </div>
     <div class="divAcuerdos">
-      <input type="checkbox" name="acuerdos" id="acuerdos" (click)=click() unchecked>Acepto términos y condiciones.<a href="#" (click)="clickLink($event)"><br> + Leer Más</a>
+      <input type="checkbox" name="acuerdos" id="acuerdos" [(ngModel)]="acuerdos" unchecked (click)="activarBtn()">Acepto términos y condiciones.<a href="#" (click)="clickLink($event)"><br> + Leer Más</a>
       <!-- <input type="checkbox" name="acuerdos" id="acuerdos" (click)=click() unchecked><a target="_blank" (onClick)="clickLink($event)" routerLink='acuerdosLegales'>Acepto acuerdos y condiciones legales</a> -->
     </div>
   </div>
 </div>
-<div *ngIf="cargando">
+<div *ngIf="cargando===true">
   <app-spinner></app-spinner>
 </div>
 <div *ngIf="error">

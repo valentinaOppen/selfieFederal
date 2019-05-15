@@ -38,7 +38,6 @@ $app->get('/test', function($req, $res) {
 	$im = base64_encode(base64_decode($im, true));
 	return $res->write($im);
 });
-
 $app->group('/admin', function() {
 	$this->post('/login[/]', \AdminApi::class . ':login');
 	// Get 

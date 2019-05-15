@@ -22,8 +22,8 @@ class Images {
             $mime_type = finfo_buffer($f, $content, FILEINFO_MIME_TYPE);
             $mime = explode('/', $mime_type);
 
-            $output_file .= rand(1, 1000000).'.'.$mime[1];
-            $output_file = './images/'. $output_file;
+            $output_file .= rand(1, 1000000).$mime[1];
+            $output_file = './images/'.'.'. $output_file;
             // return $mime[0];
             $file = fopen("$output_file", "wb");
             $res = fwrite($file, $content);

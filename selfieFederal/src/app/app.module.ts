@@ -33,6 +33,7 @@ import { UploadComponent } from './components/upload-file/upload/upload.componen
 import { GaleriaComponent } from './components/galeria/galeria.component';
 import { AutocompleteComponent } from './components/maps/autocomplete/autocomplete.component';
 import { AcuerdosLegalesComponent } from './components/acuerdos-legales/acuerdos-legales.component';
+import { ShowFileComponent } from './components/show-file/show-file.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AcuerdosLegalesComponent } from './components/acuerdos-legales/acuerdos
     UploadComponent,
     GaleriaComponent,
     AutocompleteComponent,
-    AcuerdosLegalesComponent
+    AcuerdosLegalesComponent,
+    ShowFileComponent
   ],
   imports: [
     BrowserModule,

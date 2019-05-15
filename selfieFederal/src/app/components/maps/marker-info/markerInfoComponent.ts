@@ -32,6 +32,9 @@ export class MarkerInfoComponent implements OnInit {
   }
 
   getImageSrc(image) {
+    if (image[0] === '.') {
+      image = image.replace('.', '');
+    }
     return `${this.SRC}${image}`;
   }
 }
