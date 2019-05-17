@@ -5,6 +5,16 @@
     padding-top:2vw;
 }
 
+.containerHeader a
+{
+    color:white;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
+
 .fab
 {
     color:white;
