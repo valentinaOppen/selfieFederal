@@ -351,6 +351,11 @@ body
     color:white !important;
 }
 
+.form-control
+{
+    width:29%;
+    /* margin: 0 auto 1em auto; */
+}
 
 @media only screen 
   and (min-device-width: 320px) 

@@ -15,7 +15,7 @@ export class AutocompleteComponent implements OnInit {
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
-  public placeholder = "Ingrese ubicación";
+  public placeholder = "Ubicación";
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
