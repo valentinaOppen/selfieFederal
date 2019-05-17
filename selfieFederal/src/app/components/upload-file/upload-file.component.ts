@@ -19,6 +19,7 @@ export class UploadFileComponent implements OnInit {
   captcha = false;
   button = false;
   txt = '';
+  alertTxt = false;
   acuerdos = false;
   constructor(private ws: WsService, private router: Router) { }
 
@@ -83,8 +84,16 @@ export class UploadFileComponent implements OnInit {
       txt: this.txt || ''
     };
 
-    // this.onCargar.emit({ cargado: true });
-    this.ws.setSelfie(this.selfie)
+    if(this.selfie.persona.txt == '')
+    {      
+      this.alertTxt = true;
+      this.cargando = false;      
+      // document.getElementById('inputTxt').focus();
+    }
+    else
+    {
+      // this.onCargar.emit({ cargado: true });
+      this.ws.setSelfie(this.selfie)
       .subscribe(data => {
         console.log(data);
         this.cargando = false;
@@ -95,8 +104,9 @@ export class UploadFileComponent implements OnInit {
         this.error = true;
         // this.onCargar.emit({ cargado: false });
       });
-    // console.log(this.selfie);
-    // this.router.navigate['/galeria'];
+      // console.log(this.selfie);
+      // this.router.navigate['/galeria'];
+    }    
   }
 
   clickLink(e) {
