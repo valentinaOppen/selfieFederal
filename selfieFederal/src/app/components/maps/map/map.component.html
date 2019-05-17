@@ -13,12 +13,13 @@
 		[draggable]="item.draggable"
 		openInfoWindow="true"
 		iconUrl="./assets/MapMarker.png"
+		(markerClick)="clickedMarker(infowindow)"
 		>
 		<!-- Seteo la info de la persona al hacer click -->
-		<agm-info-window [isOpen]="abrirMatkers" *ngIf="marcadores">
+		<agm-info-window *ngIf="marcadores" #infowindow>
 			<app-marker-info
-			
 			[markerItem]='item'
+			[infowindow]="infowindow"
 			></app-marker-info>
 		</agm-info-window>
 	</agm-marker>

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { WsService } from '../../../services/ws.service';
+// import { AgmInfoWindow } from '@agm/core';
 
 @Component({
   selector: 'app-marker-info',
@@ -7,6 +8,7 @@ import { WsService } from '../../../services/ws.service';
   styleUrls: ['./marker-info.component.css']
 })
 export class MarkerInfoComponent implements OnInit {
+  @Input() infowindow;
   public _markerItem;
   @Input() 
   set markerItem(value) {
@@ -22,15 +24,26 @@ export class MarkerInfoComponent implements OnInit {
     img: './images/img_avatar3.png',
     nombre: 'Jon Doe'
   };
-
+  // @Output() markerClick = new EventEmitter<any>();
   SRC = this.ws.SRC; // 'http://127.0.0.1:8080/selfieFederal/';
-  constructor(public ws: WsService) {
+  constructor(
+    public ws: WsService,
+    // public iff: AgmInfoWindow
+    ) {
+    // console.log(iff.close());
   }
 
   ngOnInit() {
 
   }
 
+  click(e) {
+    
+    if (this.infowindow) {
+      this.infowindow.close();
+    }
+    // this.markerClick.emit(this.infowindow);
+  }
   getImageSrc(image) {
     if (image[0] === '.') {
       image = image.replace('.', '');
