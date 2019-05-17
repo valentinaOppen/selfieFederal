@@ -12,10 +12,11 @@ import {
 	styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
+	// tslint:disable-next-line:no-output-on-prefix
 	@Output() onCargar = new EventEmitter<any>();
 
 	file: any;
-	maxFileSize = 3; // megas
+	maxFileSize = 5; // megas
 	constructor() { }
 
 	ngOnInit() {
@@ -41,7 +42,7 @@ export class UploadComponent implements OnInit {
 					formData.append('logo', file, droppedFile.relativePath)
 					this.file = await this.getBase64(file);
 					let aux = this.file.imageAsBase64;
-					this.file.imageAsBase64 = aux.slice(aux.indexOf(',') + 1, aux.length)
+					this.file.imageAsBase64 = aux.slice(aux.indexOf(',') + 1, aux.length);
 
 					this.onCargar.emit(this.file);
 
@@ -63,13 +64,17 @@ export class UploadComponent implements OnInit {
 		// console.log(event);
 	}
 
-	validateFile (file) {
+	validateFile(file) {
+		// tslint:disable-next-line:indent
 		return this.validateFileSize(file.size) && this.validateFileType(file.type);
 	}
 	validateFileType(type): boolean {
 		
+		// tslint:disable-next-line:curly
 		if (typeof type !== 'string') return false;
-		return type.substring(0, type.indexOf('/')).toLowerCase() === "image";
+		// console.log(type.substring(0, type.indexOf('/')).toLowerCase());
+		const tipo = type.substring(0, type.indexOf('/')).toLowerCase() ;
+		return tipo === 'image' || tipo === 'video';
 	}
 
 	validateFileSize(size, megas = this.maxFileSize): boolean {

@@ -68,8 +68,8 @@ export class MapaHomeComponent implements OnInit {
       // console.log(r)
 
       if (r.state === 'denied') {
-        throw "no camara";
-      };
+        throw new Error('no camara');
+      }
       this.mostrarUploadSelfie = true;
       this.upload.mostrar = true;
       this.upload.paso = 0;
@@ -77,18 +77,18 @@ export class MapaHomeComponent implements OnInit {
       this.ngxSmartModalService.getModal('myModal').open();
 
     } catch (error) {
-      alert("No otorgo permisos para utilizar su camara.")
+      alert('No otorgo permisos para utilizar su camara.');
       // console.log(error);
-      this.win.getNavigator().mediaDevices.getUserMedia({ audio: true })
-      .then(data => {
-        // console.log(data)
-        ;
-      })
-      .catch(e => {
-        // console.log(e)
-        ;
-      }
-      );
+      this.win.getNavigator().mediaDevices.getUserMedia({ audio: false, video: true });
+      // .then(data => {
+      //   // console.log(data)
+      //   ;
+      // })
+      // .catch(e => {
+      //   // console.log(e)
+      //   ;
+      // }
+      // );
       // this.win.getNavigator().getMedia({video: true, audio: false},
       // (data, e) => {
       //   console.log(data, e)
@@ -97,17 +97,15 @@ export class MapaHomeComponent implements OnInit {
       // }
       // )
     }
-       
   }
 
   openModalFile() {
     // this.upload.mostrar = true;
-    this.upload.paso = 0;
+    this.upload.paso = 2;
     this.ngxSmartModalService.getModal('modalFile').open();
   }
 
-  showDivFile()
-  {
+  showDivFile() {
     this.isVisible = false;
     // document.getElementById('containerFooterMapa').style('display', 'none');
     // document.getElementById('divFooterMapa').hidden=true;
@@ -117,7 +115,7 @@ export class MapaHomeComponent implements OnInit {
   cargado(e) {
     this.upload.mostrar = false;
     this.upload.paso = 0;
-    
+
     this.ngxSmartModalService.getModal('myModal').close();
     this.mostrarUploadSelfie = false;
   }
@@ -137,11 +135,13 @@ export class MapaHomeComponent implements OnInit {
   }
 
   navigateTo(ruta) {
-    this.router.navigateByUrl("galeria");
+    this.router.navigateByUrl('galeria');
   }
 
-  getImageSrc(image) {    
-    
+  getImageSrc(image) {
+    if (image[0] === '.') {
+      image = image.replace('.', '');
+    }
     return `${this.SRC}${image}`;
   }
 }

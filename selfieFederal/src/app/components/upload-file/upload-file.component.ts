@@ -19,7 +19,8 @@ export class UploadFileComponent implements OnInit {
   captcha = false;
   button = false;
   txt = '';
-  constructor(private ws: WsService, private router:Router) { }
+  acuerdos = false;
+  constructor(private ws: WsService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -39,47 +40,57 @@ export class UploadFileComponent implements OnInit {
     else
     {
       // console.log("NO ESTA");
-      alert("Debe aceptar los acuerdos y condiciones");      
+      alert("Debe aceptar los acuerdos y condiciones");
       this.button = false;
       // document.getElementById('alertAcuerdos').show;
     }
     
     // this.selfie.persona = {};
   }
-  resolved(captchaResponse: string) {
-    console.log(`Resolved captcha with response ${captchaResponse}:`);
-  }
 
+  // resolved(captchaResponse: string) {
+  //   console.log(`Resolved captcha with response ${captchaResponse}:`);
+  // }
+
+  activarBtn() {
+    this.button = !this.acuerdos ? true : false;
+  }
   click() {
-    // this.cargando = true;
+    // alert('Debe aceptar los acuerdos y condiciones');
+    this.cargando = true;
     // this.captcha = true;
 
-    if(this.button == true)
-    {
-      this.button = false;
-    }
-    else
-    {
-      this.button = true;
-    }
-    if (!this.webcamImage) return;
-    // return;
-    this.button = true;
-    this.selfie.persona = {
-      nombre: "sin nombre",
-      img: this.webcamImage.imageAsBase64,
-      txt: this.txt || ''
+    // if (this.button === true) {
+    //   this.button = false;
+    // } else  {
+    //   this.button = true;
+    // }
+
+    if (!this.webcamImage) {
+      this.cargando = false;
+      return false;
     }
 
+    if (!this.selfie) {
+      this.cargando = false;
+      return false;
+    }
+
+    // this.button = true;
+    this.selfie.persona = {
+      nombre: 'sin nombre',
+      img: this.webcamImage.imageAsBase64,
+      txt: this.txt || ''
+    };
+
     // this.onCargar.emit({ cargado: true });
-    // this.selfie.address = 
     this.ws.setSelfie(this.selfie)
       .subscribe(data => {
-        // console.log(data)
+        console.log(data);
         this.cargando = false;
         this.onCargar.emit({ cargado: true });
       }, e => {
-        // console.log(e)
+        console.log(e);
         this.cargando = false;
         this.error = true;
         // this.onCargar.emit({ cargado: false });
@@ -89,7 +100,7 @@ export class UploadFileComponent implements OnInit {
   }
 
   clickLink(e) {
-    
+
     e.preventDefault();
     window.open('/acuerdosLegales');
     // routerLink = 'acuerdosLegales'

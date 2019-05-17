@@ -1,0 +1,19 @@
+<img [src]="src"  alt="" *ngIf="!muestroVideo(src)"
+[ngClass]="{
+  'dos-fotos-mobile': clase === 'mobile',
+  'dos-fotos-web': clase === 'web',
+  'dos-fotos-marker': clase === 'marker',
+  'galeria': clase === 'galeria'
+}"
+>
+<!-- class="imgsFooterMap" -->
+<video  controls *ngIf="muestroVideo(src)"
+[ngClass]="{
+  'dos-fotos-mobile': clase === 'mobile',
+  'dos-fotos-web': clase === 'web',
+  'dos-fotos-marker': clase === 'marker',
+  'galeria': clase === 'galeria'
+}"
+>
+  <source [src]="src">
+</video>

@@ -71,6 +71,7 @@ class SelfiesApi
     }
 
     static public function setSelfie($request, $response) {
+        sleep(3);
         $body = $request->getParsedBody();
         // $selfie = new Selfie($body);
         // $rta = SelfieDAO::insertarSelfie($selfie);

@@ -24,10 +24,23 @@ export class GaleriaComponent implements OnInit
   }
 
   getImageSrc(image) {
+    if (image[0] === '.') {
+      image = image.replace('.', '');
+    }
     return `${this.SRC}${image}`;
   }
 
   backClicked()  {
     this.location.back();
+  }
+
+  muestroVideo(src) {
+    const videos = ['x-flv', 'mp4', 'x-mpegURL', 'MP2T', '3gpp', 'quicktime', 'x-msvideo', 'x-ms-wmv'];
+
+    const a = src.split('.');
+    const ext = a[a.length - 1];
+    console.log(ext);
+
+    return videos.find(data => data === ext)
   }
 }

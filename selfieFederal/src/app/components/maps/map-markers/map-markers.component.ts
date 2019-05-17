@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Icoords, Imarker, ILatLng } from '../imaps';
-import { WsService } from '../../../services/ws.service'; 
+import { WsService } from '../../../services/ws.service';
 
 
 @Component({
@@ -9,20 +9,20 @@ import { WsService } from '../../../services/ws.service';
   styleUrls: ['./map-markers.component.css']
 })
 export class MapMarkersComponent implements OnInit {
-  @Input() 
+  @Input()
   set markersSearch(data) {
     if (!data) {
       this.markers = [];
-      
+
     } else {
       if (data[0]) {
         this.latLng = {
           lat: data[0].lat,
           lng: data[0].lng
-        }
+        };
     }
-    
-    this.markers = data;
+
+      this.markers = data;
     }
   }
   get makersSearch() {
@@ -44,14 +44,14 @@ export class MapMarkersComponent implements OnInit {
           this.latLng = {
             lat: data[0].lat,
             lng: data[0].lng
-          } 
+          };
         }
         this.markers = data;
-      })
+      });
   }
 
   handlerMapDblClick(e: ILatLng) {
-    console.log(e)
+    // console.log(e)
     this.markers.push({
       lat: e.lat,
       lng: e.lng,
@@ -60,12 +60,12 @@ export class MapMarkersComponent implements OnInit {
   }
 
   _callback(data) {
-  console.log(data);
+  // console.log(data);
   if (data[0]) {
     this.latLng = {
       lat: data[0].lat,
       lng: data[0].lng
-    }
+    };
   }
   this.markers = data;
   }

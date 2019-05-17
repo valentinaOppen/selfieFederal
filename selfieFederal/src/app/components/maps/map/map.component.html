@@ -12,7 +12,8 @@
 		[longitude]="item.lng"
 		[draggable]="item.draggable"
 		openInfoWindow="true"
-		iconUrl="./assets/MapMarker.png">
+		iconUrl="./assets/MapMarker.png"
+		>
 		<!-- Seteo la info de la persona al hacer click -->
 		<agm-info-window [isOpen]="abrirMatkers" *ngIf="marcadores">
 			<app-marker-info

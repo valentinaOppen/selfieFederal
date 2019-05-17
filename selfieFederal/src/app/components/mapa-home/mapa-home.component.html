@@ -34,7 +34,8 @@
         <div class="divGaleriaFooterMapa">
           <div class="imgsFooterMap" *ngFor="let mark of markers">
             <div class="imgFooterMap">
-                <img [src]="getImageSrc(mark.persona.img)" height="75px" alt=""> 
+                <show-file [src]="getImageSrc(mark.persona.img)" clase="web" ></show-file>
+                <!-- <img [src]="getImageSrc(mark.persona.img)" height="75px" alt="">  -->
                 <div class="footerImgMap">
                   <div class="comparti">COMPARTIR</div>
                   <div class="redesSocialesFooterImg">
@@ -50,7 +51,8 @@
         <div class="divGaleriaFooterMapaMobile">
           <div class="imgsFooterMapMobile" *ngFor="let mark of markers">
             <div class="imgFooterMapMobile">
-                <img *ngIf="markers && markers[0]" [src]="getImageSrc(markers[0].persona.img)" alt="">                 
+              <show-file clase="mobile" [src]="getImageSrc(mark.persona.img)" alt=""></show-file>
+              <!-- <img *ngIf="markers && markers[0]" [src]="getImageSrc(markers[0].persona.img)" alt="">                  -->
                 <!-- <img *ngIf="markers && markers[0]" [src]="getImageSrc(markers[0].persona.img)" alt="">                  -->
             </div>
           </div>  
@@ -75,11 +77,7 @@
           <upload-file (onCargar)="cargadoFile($event)"></upload-file>
         </div>
       </div>
-  
-    
     </div>
-
-    
   </div>
 </div>
 

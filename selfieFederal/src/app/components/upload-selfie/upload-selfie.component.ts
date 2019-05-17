@@ -9,14 +9,14 @@ import { WsService } from '../../services/ws.service';
   styleUrls: ['./upload-selfie.component.css']
 })
 export class UploadSelfieComponent implements OnInit {
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onCargar = new EventEmitter<any>();
   @Input('default')
-  set default(value: any) {
-    
-    this.webcamImage = null;
+    set default(value: any) {
+      this.webcamImage = null;
   }
   cargando = false;
-  mostrar = false;;
+  mostrar = false;
   error = false;
   webcamImage: WebcamImage;
   selfie: Imarker;
@@ -25,6 +25,8 @@ export class UploadSelfieComponent implements OnInit {
   button = false;
   verCamara = false;
   txt = '';
+  acuerdos = false;
+
   constructor(private ws: WsService) { }
 
   ngOnInit() {
@@ -40,17 +42,14 @@ export class UploadSelfieComponent implements OnInit {
   }
 
   handleMapClick(e) {
-    console.log(e)
+    // console.log(e)
     this.selfie = e;
     // this.selfie.persona = {};
-    if(document.getElementById('acuerdos')['checked'] == true)
-    {            
+    if (document.getElementById('acuerdos')['checked']  ===  true) {
       this.button = true;
-    }    
-    else
-    {
+    } else {
       // console.log("NO ESTA");
-      alert("Debe aceptar los acuerdos y condiciones");      
+      alert('Debe aceptar los acuerdos y condiciones');
       this.button = false;
       // document.getElementById('alertAcuerdos').show;
     }
@@ -64,53 +63,57 @@ export class UploadSelfieComponent implements OnInit {
   }
 
   clickFoto() {
-    // this.paso = 2;
-    if(this.button == true)
-    {
+    this.paso = 2;
+    if (this.button === true) {
       this.button = false;
-    }
-    else
-    {
+    } else {
       this.button = true;
     }
-    
+
   }
 
   resolved(captchaResponse: string) {
     console.log(`Resolved captcha with response ${captchaResponse}:`);
   }
-
+  activarBtn() {
+    this.button = !this.acuerdos ? true : false;
+  }
   click() {
-    // this.cargando = true;
-    if(this.button == true)
-    {
-      this.button = false;
+    this.cargando = true;
+    if (!this.acuerdos) {
+      alert('Debe aceptar los acuerdos y condiciones');
+      return false;
     }
-    else
-    {
+    if (this.button === true) {
+      this.button = false;
+    } else {
       this.button = true;
     }
     // this.paso = 3;
     // return;
+    if (!this.selfie) {
+
+      return false;
+    }
     this.selfie.persona = {
-      nombre: "sin nombre",
+      nombre: 'sin nombre',
       img: this.webcamImage.imageAsBase64,
       txt: this.txt || ''
-    }
+    };
 
     // this.onCargar.emit({ cargado: true });
     // this.selfie.address = 
     this.ws.setSelfie(this.selfie)
     .subscribe(data => {
-      // console.log(data)
+      // console.log(data);
       this.cargando = false;
       this.onCargar.emit({ cargado: true });
-      this.paso = 0;
+      this.paso = 2;
     }, e => {
-      // console.log(e)
-        this.cargando = false;
-        this.error = true;
-        this.paso = 0;
+      // console.log(e);
+      this.cargando = false;
+      this.error = true;
+      this.paso = 2;
         // this.onCargar.emit({ cargado: false });
     });
     // console.log(this.selfie);
