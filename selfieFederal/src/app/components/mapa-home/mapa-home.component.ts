@@ -20,8 +20,8 @@ export class MapaHomeComponent implements OnInit {
 
   markers: Array<any>; //Imarker[];
   markersSearch: any;
-  SRC = this.ws.SRC; // 'http://127.0.0.1:8080/selfieFederal/';
-  // SRC = 'http://127.0.0.1:8080/selfieFederal/';
+  SRC = this.ws.SRC;
+
   mostrarUploadSelfie = true;
   isVisible: boolean = true;
   coverMap:boolean = true;
@@ -54,9 +54,9 @@ export class MapaHomeComponent implements OnInit {
       this.ws.searchSelfies(search)
       .subscribe(data => {
         // console.log(data)
-        this.markersSearch = data
+        this.markersSearch = data;
       }, e => {
-        console.log(e)
+        console.log(e);
       })
     }
   }
@@ -64,7 +64,7 @@ export class MapaHomeComponent implements OnInit {
     // console.log(navigator.getUserMedia())
 
     try {
-      let r = await this.win.getNavigator()['permissions'].query({ name: 'camera' })
+      let r = await this.win.getNavigator()['permissions'].query({ name: 'camera' });
       // console.log(r)
 
       if (r.state === 'denied') {
@@ -115,14 +115,19 @@ export class MapaHomeComponent implements OnInit {
   cargado(e) {
     this.upload.mostrar = false;
     this.upload.paso = 0;
+    alert('Imagen cargada');
 
     this.ngxSmartModalService.getModal('myModal').close();
     this.mostrarUploadSelfie = false;
+    this.router.navigate(['galeria']);
+
   }
   cargadoFile(e) {
     // console.log(e)
     this.isVisible = true;
+    alert('Imagen cargada');
     this.ngxSmartModalService.getModal('modalFile').close();
+    this.router.navigate(['galeria']);
   }
   close(e) {
     this.upload.mostrar = false;

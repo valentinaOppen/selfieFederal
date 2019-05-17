@@ -42,7 +42,7 @@ export class UploadSelfieComponent implements OnInit {
   }
 
   handleMapClick(e) {
-    // console.log(e)
+    console.log(e)
     this.selfie = e;
     // this.selfie.persona = {};
     if (document.getElementById('acuerdos')['checked']  ===  true) {
@@ -91,6 +91,7 @@ export class UploadSelfieComponent implements OnInit {
     }
     // this.paso = 3;
     // return;
+    console.log(this.selfie);
     if (!this.selfie) {
 
       return false;
